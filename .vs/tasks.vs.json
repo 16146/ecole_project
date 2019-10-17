@@ -1,0 +1,10 @@
+{
+  "version": "0.2.1",
+  "tasks": [
+    {
+      "taskName": "tâche-home.html",
+      "appliesTo": "templates/ecole_home/home.html.twig",
+      "type": "launch"
+    }
+  ]
+}

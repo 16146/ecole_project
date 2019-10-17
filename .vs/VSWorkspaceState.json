@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\bin",
+    "\\config",
+    "\\src",
+    "\\src\\Controller",
+    "\\src\\DataFixtures",
+    "\\src\\Entity",
+    "\\templates",
+    "\\templates\\ecole_home"
+  ],
+  "SelectedNode": "\\templates\\ecole_home\\home.html.twig",
+  "PreviewInSolutionExplorer": false
+}

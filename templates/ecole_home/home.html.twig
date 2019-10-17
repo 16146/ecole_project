@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+
+<section class="connexion">
+    <h2>Accéder à la page de connexion :</h2>
+        <!-- zone de connexion -->
+    <!--  ON NE PEUT PAS POST ETC. ICI! Faut passer par le controller où tu mets handlerequest $variable->handlerequest() 
+    ce genre de truc
+    <form action="verification.php" method="POST">              
+        <input type="submit" id='submit' value='LOGIN' >
+        <?php
+        if(isset($_GET['erreur'])){
+            $err = $_GET['erreur'];
+            if($err==1 || $err==2)
+                echo "<p style='color:red'>Utilisateur ou mot de passe incorrect</p>";
+        }
+        ?>
+    </form>
+    -->
+<!--
+    <div class="form-group has-success">
+        <label class="form-control-label" for="inputSuccess1">ID de l'utilisateur :</label>
+        <input type="text" value="correct value" class="form-control is-valid" id="inputValid">
+        <div class="valid-feedback">Success! You've done it.</div>
+    </div>
+
+    <div class="form-group has-danger">
+        <label class="form-control-label" for="inputDanger1">Mot de passe :</label>
+        <input type="text" value="wrong value" class="form-control is-invalid" id="inputInvalid">
+        <div class="invalid-feedback">Mot de passe et/ou id erronés.</div>
+    </div>
+--> 
+
+<!-- PAS FAIRE CA FAUT UTILISER LES FORMULAIRES SYMFONY-->
+    <!--<div class="form-group">
+        <label class="form-control-label" for="inputLarge">ID de l'utilisateur :</label>
+        <input id="user" type="text" class="form-control" placeholder="Ecrire...">
+    </div>
+    <div class="form-group">
+        <label class="form-control-label" for="exampleInputPassword1">Mot de passe :</label>
+        <input id="mdp" type="password" class="form-control" placeholder="Ecrire...">
+    </div>
+
+    <div class="form-group">
+        <label class="col-form-label col-form-label-lg" for="inputLarge">ID de l'utilisateur :</label>
+        <input class="form-control form-control-lg" type="text" placeholder=".form-control-lg" id="inputLarge">
+    </div>-->
+    <a type="submit" style="font-size:20px;height:50px;width:700px" href="{{ path('login')}}" class="btn btn-primary">Se connecter</a>
+</section>
+
+</form>
+{% endblock %}
