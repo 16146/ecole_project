@@ -4,7 +4,12 @@
 
 {% block body %}
     {% if app.user %} 
-        
+        {% for classe in liste_classes %}
+        <br>
+            <p><strong>{{ classe.nameclass }}</strong> : {{ classe.teacher }}</p>
+            <a href="{{ path('students',{'id': classe.nameclass }) }}"style="color:white;" class="btn btn-primary">Voir la liste des élèves</a>
+        <br>
+        {% endfor %}
     {% else %}
         <h2>Vous n'êtes pas connecté !</h2>
     {% endif %}

@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Elèves{% endblock %}
+
+{% block body %}
+    {% if app.user %} 
+        {% for students in liste_students %}
+        <br>
+            <p><strong>{{ students.nameclass }}</strong> :{{ students.studentfirstname }} </p>
+        <br>
+        {% endfor %}
+    {% else %}
+        <h2>Vous n'êtes pas connecté !</h2>
+    {% endif %}
+
+{% endblock %}

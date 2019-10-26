@@ -4,6 +4,8 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Entity\Classes;
+use App\Entity\Students;
 
 
 class EcoleHomeController extends AbstractController
@@ -31,6 +33,24 @@ class EcoleHomeController extends AbstractController
 	*/
     public function classes()
     {
-		return $this->render('ecole_home/classes.html.twig');
-	}
+        $repo_classes=$this->getDoctrine()->getRepository(Classes::class);
+        $liste_classes=$repo_classes->findAll();
+        return $this->render('ecole_home/classes.html.twig',
+        ['liste_classes'=>$liste_classes
+        ]);
+    }
+
+    /**
+	*@Route("/home/classes/{id}", name="students")
+    */
+    public function students($id)
+    {
+        $repo_students=$this->getDoctrine()->getRepository(Students::class);
+        $liste_students=$repo_students->findBy(['name_class' => $id]);
+        return $this->render('ecole_home/students.html.twig',
+        ['liste_students'=>$liste_students
+        ]);
+        
+        /*findByname_class($id);*/
+    }
 }
