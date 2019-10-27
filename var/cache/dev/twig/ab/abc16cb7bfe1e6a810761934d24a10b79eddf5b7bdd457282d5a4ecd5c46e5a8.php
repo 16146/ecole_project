@@ -87,38 +87,63 @@ class __TwigTemplate_320325f2bbaa53601a904f81b33a78be08ca32933464bd0f5af59c320a3
         // line 6
         echo "    ";
         if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 6, $this->source); })()), "user", [], "any", false, false, false, 6)) {
-            echo " 
-        ";
-            // line 7
+            echo "   
+        <table class=\"table table-hover\">
+            <thead>
+                <h1>Liste des classes :</h1>
+            </thead> 
+            <tbody>
+                ";
+            // line 12
             $context['_parent'] = $context;
-            $context['_seq'] = twig_ensure_traversable((isset($context["liste_classes"]) || array_key_exists("liste_classes", $context) ? $context["liste_classes"] : (function () { throw new RuntimeError('Variable "liste_classes" does not exist.', 7, $this->source); })()));
-            foreach ($context['_seq'] as $context["_key"] => $context["classe"]) {
-                // line 8
-                echo "        <br>
-            <p><strong>";
-                // line 9
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["classe"], "nameclass", [], "any", false, false, false, 9), "html", null, true);
-                echo "</strong> : ";
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["classe"], "teacher", [], "any", false, false, false, 9), "html", null, true);
-                echo "</p>
-            <a href=\"";
-                // line 10
-                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("students", ["id" => twig_get_attribute($this->env, $this->source, $context["classe"], "nameclass", [], "any", false, false, false, 10)]), "html", null, true);
-                echo "\"style=\"color:white;\" class=\"btn btn-primary\">Voir la liste des élèves</a>
-        <br>
-        ";
+            $context['_seq'] = twig_ensure_traversable(twig_array_batch((isset($context["liste_classes"]) || array_key_exists("liste_classes", $context) ? $context["liste_classes"] : (function () { throw new RuntimeError('Variable "liste_classes" does not exist.', 12, $this->source); })()), 2));
+            foreach ($context['_seq'] as $context["_key"] => $context["row"]) {
+                // line 13
+                echo "                    <tr>
+                        ";
+                // line 14
+                $context['_parent'] = $context;
+                $context['_seq'] = twig_ensure_traversable($context["row"]);
+                foreach ($context['_seq'] as $context["_key"] => $context["column"]) {
+                    // line 15
+                    echo "                            <td>
+                                <div class=\"card-header\"><strong>";
+                    // line 16
+                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["column"], "nameclass", [], "any", false, false, false, 16), "html", null, true);
+                    echo "</strong> : ";
+                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["column"], "teacher", [], "any", false, false, false, 16), "html", null, true);
+                    echo "</div>
+                                    <div class=\"card-body\">
+                                        <p class=\"card-title\"><a href=\"";
+                    // line 18
+                    echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("students", ["id" => twig_get_attribute($this->env, $this->source, $context["column"], "nameclass", [], "any", false, false, false, 18)]), "html", null, true);
+                    echo "\"style=\"color:white;\" class=\"btn btn-primary\">Voir la liste des élèves</a></p>
+                                    </div>
+                            </td>
+                        ";
+                }
+                $_parent = $context['_parent'];
+                unset($context['_seq'], $context['_iterated'], $context['_key'], $context['column'], $context['_parent'], $context['loop']);
+                $context = array_intersect_key($context, $_parent) + $_parent;
+                // line 22
+                echo "                    </tr>
+                ";
             }
             $_parent = $context['_parent'];
-            unset($context['_seq'], $context['_iterated'], $context['_key'], $context['classe'], $context['_parent'], $context['loop']);
+            unset($context['_seq'], $context['_iterated'], $context['_key'], $context['row'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 13
-            echo "    ";
+            // line 24
+            echo "            </tbody>
+        </table>
+
+    ";
         } else {
-            // line 14
+            // line 28
             echo "        <h2>Vous n'êtes pas connecté !</h2>
+
     ";
         }
-        // line 16
+        // line 31
         echo "
 ";
         
@@ -141,7 +166,7 @@ class __TwigTemplate_320325f2bbaa53601a904f81b33a78be08ca32933464bd0f5af59c320a3
 
     public function getDebugInfo()
     {
-        return array (  122 => 16,  118 => 14,  115 => 13,  106 => 10,  100 => 9,  97 => 8,  93 => 7,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  147 => 31,  142 => 28,  136 => 24,  129 => 22,  119 => 18,  112 => 16,  109 => 15,  105 => 14,  102 => 13,  98 => 12,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -151,15 +176,30 @@ class __TwigTemplate_320325f2bbaa53601a904f81b33a78be08ca32933464bd0f5af59c320a3
 {% block title %}Classes{% endblock %}
 
 {% block body %}
-    {% if app.user %} 
-        {% for classe in liste_classes %}
-        <br>
-            <p><strong>{{ classe.nameclass }}</strong> : {{ classe.teacher }}</p>
-            <a href=\"{{ path('students',{'id': classe.nameclass }) }}\"style=\"color:white;\" class=\"btn btn-primary\">Voir la liste des élèves</a>
-        <br>
-        {% endfor %}
+    {% if app.user %}   
+        <table class=\"table table-hover\">
+            <thead>
+                <h1>Liste des classes :</h1>
+            </thead> 
+            <tbody>
+                {% for row in liste_classes|batch(2) %}
+                    <tr>
+                        {% for column in row %}
+                            <td>
+                                <div class=\"card-header\"><strong>{{ column.nameclass }}</strong> : {{ column.teacher }}</div>
+                                    <div class=\"card-body\">
+                                        <p class=\"card-title\"><a href=\"{{ path('students',{'id': column.nameclass }) }}\"style=\"color:white;\" class=\"btn btn-primary\">Voir la liste des élèves</a></p>
+                                    </div>
+                            </td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
     {% else %}
         <h2>Vous n'êtes pas connecté !</h2>
+
     {% endif %}
 
 {% endblock %}", "ecole_home/classes.html.twig", "C:\\wamp64\\www\\ecole\\templates\\ecole_home\\classes.html.twig");

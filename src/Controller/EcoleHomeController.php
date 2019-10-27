@@ -4,6 +4,8 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use App\Entity\Classes;
 use App\Entity\Students;
 
@@ -48,9 +50,24 @@ class EcoleHomeController extends AbstractController
         $repo_students=$this->getDoctrine()->getRepository(Students::class);
         $liste_students=$repo_students->findBy(['name_class' => $id]);
         return $this->render('ecole_home/students.html.twig',
-        ['liste_students'=>$liste_students
+        ['liste_students'=>$liste_students,
+        'name_class' => $id
         ]);
         
-        /*findByname_class($id);*/
+    }
+    /**
+	*@Route("/home/students/delete/{id1,id2}", name="deleteStudent")
+    */
+    public function deleteStudent(Request $request)
+    {
+        $id1 = $request->query->get('id1');
+        $id2 = $request->query->get('id2');
+        $entityManager=$this->getDoctrine()->getManager();
+        $delete=$entityManager->getRepository(Students::class)->find($id1);
+        $entityManager->remove($delete);
+        $entityManager->flush();
+        $response = $this->redirectToRoute('students',['id'=>$id2]);
+        return $response;
+        
     }
 }

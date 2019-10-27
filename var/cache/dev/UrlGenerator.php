@@ -19,6 +19,7 @@ return [
     'admin' => [[], ['_controller' => 'App\\Controller\\EcoleHomeController::admin'], [], [['text', '/admin']], [], []],
     'classes' => [[], ['_controller' => 'App\\Controller\\EcoleHomeController::classes'], [], [['text', '/home/classes']], [], []],
     'students' => [['id'], ['_controller' => 'App\\Controller\\EcoleHomeController::students'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/home/classes']], [], []],
+    'deleteStudent' => [[], ['_controller' => 'App\\Controller\\EcoleHomeController::deleteStudent'], [], [['text', '/home/students/delete/{id1,id2}']], [], []],
     'login' => [[], ['_controller' => 'App\\Controller\\SecurityController::login'], [], [['text', '/login']], [], []],
     'logout' => [[], ['_controller' => 'App\\Controller\\SecurityController::logout'], [], [['text', '/logout']], [], []],
 ];

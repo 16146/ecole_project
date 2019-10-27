@@ -83,19 +83,33 @@ class __TwigTemplate_1048d9ec44467f4bb5310f7a3d490bec4424151c687c5431cdfafe3ec44
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("classes");
         echo "\">Classes</a>
                     </li>
-                </ul>
+                    ";
+        // line 25
+        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 25, $this->source); })()), "user", [], "any", false, false, false, 25)) {
+            // line 26
+            echo "                    <li class=\"nav-item\">
+                        <a class=\"nav-link\" href=\"";
+            // line 27
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("logout");
+            echo "\">Déconnexion</a>
+                    </li>
+                    ";
+        }
+        // line 30
+        echo "                </ul>
             </div>
+            
         </nav>
         <div class=\"container\">        
             ";
-        // line 29
+        // line 35
         $this->displayBlock('body', $context, $blocks);
-        // line 30
+        // line 36
         echo "        </div>
         ";
-        // line 31
+        // line 37
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 32
+        // line 38
         echo "    </body>
 </html>
 ";
@@ -144,7 +158,7 @@ class __TwigTemplate_1048d9ec44467f4bb5310f7a3d490bec4424151c687c5431cdfafe3ec44
 
     }
 
-    // line 29
+    // line 35
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -162,7 +176,7 @@ class __TwigTemplate_1048d9ec44467f4bb5310f7a3d490bec4424151c687c5431cdfafe3ec44
 
     }
 
-    // line 31
+    // line 37
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -192,7 +206,7 @@ class __TwigTemplate_1048d9ec44467f4bb5310f7a3d490bec4424151c687c5431cdfafe3ec44
 
     public function getDebugInfo()
     {
-        return array (  166 => 31,  148 => 29,  130 => 8,  111 => 5,  99 => 32,  97 => 31,  94 => 30,  92 => 29,  83 => 23,  77 => 20,  66 => 12,  61 => 9,  59 => 8,  53 => 5,  47 => 1,);
+        return array (  180 => 37,  162 => 35,  144 => 8,  125 => 5,  113 => 38,  111 => 37,  108 => 36,  106 => 35,  99 => 30,  93 => 27,  90 => 26,  88 => 25,  83 => 23,  77 => 20,  66 => 12,  61 => 9,  59 => 8,  53 => 5,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -221,8 +235,14 @@ class __TwigTemplate_1048d9ec44467f4bb5310f7a3d490bec4424151c687c5431cdfafe3ec44
                     <li class=\"nav-item\">
                         <a class=\"nav-link\" href=\"{{path('classes')}}\">Classes</a>
                     </li>
+                    {% if app.user %}
+                    <li class=\"nav-item\">
+                        <a class=\"nav-link\" href=\"{{path('logout')}}\">Déconnexion</a>
+                    </li>
+                    {% endif %}
                 </ul>
             </div>
+            
         </nav>
         <div class=\"container\">        
             {% block body %}{% endblock %}
