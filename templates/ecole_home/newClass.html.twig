@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouvelle Classe{% endblock %}
+
+{% block body %}
+    {% if app.user %}   
+        
+    {% else %}
+        <h2>Vous n'êtes pas connecté !</h2>
+
+    {% endif %}
+
+{% endblock %}

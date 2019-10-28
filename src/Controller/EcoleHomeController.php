@@ -70,4 +70,12 @@ class EcoleHomeController extends AbstractController
         return $response;
         
     }
+    /**
+	*@Route("/home/new_class", name="newClass")
+    */
+    public function newClass()
+    {
+        return $this->render('ecole_home/newClass.html.twig');
+        
+    }
 }

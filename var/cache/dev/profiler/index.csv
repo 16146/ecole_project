@@ -1966,3 +1966,15 @@ cf33b6,::1,GET,http://localhost/ecole/public/index.php/admin,1572216359,,302
 4a97d1,::1,GET,http://localhost/ecole/public/index.php/home/classes/Classe%20Aldebaran,1572216368,,200
 b74392,::1,GET,http://localhost/ecole/public/index.php/home,1572216371,,200
 c04f6a,::1,GET,http://localhost/ecole/public/index.php/home/classes,1572216373,,200
+8c64cc,::1,GET,http://localhost/ecole/public/index.php/home,1572275350,,200
+b52032,::1,GET,http://localhost/ecole/public/index.php/login,1572275354,,200
+7affcf,::1,POST,http://localhost/ecole/public/index.php/login,1572275357,,302
+946090,::1,GET,http://localhost/ecole/public/index.php/admin,1572275357,,302
+0a38db,::1,GET,http://localhost/ecole/public/index.php/home/classes,1572275357,,200
+317280,::1,GET,http://localhost/ecole/public/index.php/home/classes,1572275576,,200
+35ea24,::1,GET,http://localhost/ecole/public/index.php/home/classes,1572275592,,200
+3aa2c8,::1,GET,http://localhost/ecole/public/index.php/home/classes,1572275619,,200
+f7a1fd,::1,GET,http://localhost/ecole/public/index.php/home/classes,1572275645,,200
+84d04c,::1,GET,http://localhost/ecole/public/index.php/home/classes,1572275683,,200
+b48993,::1,GET,http://localhost/ecole/public/index.php/home/classes,1572276671,,200
+b53578,::1,GET,http://localhost/ecole/public/index.php/home/new_class,1572276727,,200

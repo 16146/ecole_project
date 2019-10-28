@@ -135,7 +135,10 @@ class __TwigTemplate_320325f2bbaa53601a904f81b33a78be08ca32933464bd0f5af59c320a3
             // line 24
             echo "            </tbody>
         </table>
-
+        <a href=\"";
+            // line 26
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("newClass");
+            echo "\"style=\"color:white;\" class=\"btn btn-info btn-lg btn-block\">Ajouter une nouvelle classe</a>
     ";
         } else {
             // line 28
@@ -166,7 +169,7 @@ class __TwigTemplate_320325f2bbaa53601a904f81b33a78be08ca32933464bd0f5af59c320a3
 
     public function getDebugInfo()
     {
-        return array (  147 => 31,  142 => 28,  136 => 24,  129 => 22,  119 => 18,  112 => 16,  109 => 15,  105 => 14,  102 => 13,  98 => 12,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  150 => 31,  145 => 28,  140 => 26,  136 => 24,  129 => 22,  119 => 18,  112 => 16,  109 => 15,  105 => 14,  102 => 13,  98 => 12,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -196,7 +199,7 @@ class __TwigTemplate_320325f2bbaa53601a904f81b33a78be08ca32933464bd0f5af59c320a3
                 {% endfor %}
             </tbody>
         </table>
-
+        <a href=\"{{path('newClass')}}\"style=\"color:white;\" class=\"btn btn-info btn-lg btn-block\">Ajouter une nouvelle classe</a>
     {% else %}
         <h2>Vous n'êtes pas connecté !</h2>
 

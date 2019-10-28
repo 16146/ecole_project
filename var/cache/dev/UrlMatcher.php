@@ -17,6 +17,7 @@ return [
         '/admin' => [[['_route' => 'admin', '_controller' => 'App\\Controller\\EcoleHomeController::admin'], null, null, null, false, false, null]],
         '/home/classes' => [[['_route' => 'classes', '_controller' => 'App\\Controller\\EcoleHomeController::classes'], null, null, null, false, false, null]],
         '/home/students/delete/{id1,id2}' => [[['_route' => 'deleteStudent', '_controller' => 'App\\Controller\\EcoleHomeController::deleteStudent'], null, null, null, false, false, null]],
+        '/home/new_class' => [[['_route' => 'newClass', '_controller' => 'App\\Controller\\EcoleHomeController::newClass'], null, null, null, false, false, null]],
         '/login' => [[['_route' => 'login', '_controller' => 'App\\Controller\\SecurityController::login'], null, null, null, false, false, null]],
         '/logout' => [[['_route' => 'logout', '_controller' => 'App\\Controller\\SecurityController::logout'], null, null, null, false, false, null]],
     ],
