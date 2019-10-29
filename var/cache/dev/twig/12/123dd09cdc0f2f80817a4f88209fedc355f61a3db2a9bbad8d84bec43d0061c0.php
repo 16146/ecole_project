@@ -141,15 +141,19 @@ class __TwigTemplate_12caa6d5e45ce849ec7b8d6834972bb8f3da8e71d28d44f4242f9b58d13
             $context["i"] = 0;
             // line 28
             echo "        </table>
+        <a href=\"";
+            // line 29
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("newStudent", ["id" => twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["liste_students"]) || array_key_exists("liste_students", $context) ? $context["liste_students"] : (function () { throw new RuntimeError('Variable "liste_students" does not exist.', 29, $this->source); })()), 0, [], "array", false, false, false, 29), "nameclass", [], "any", false, false, false, 29)]), "html", null, true);
+            echo "\"style=\"color:white;\" class=\"btn btn-info btn-lg btn-block\">Ajouter une nouvel étudiant</a>
 
         
     ";
         } else {
-            // line 32
+            // line 33
             echo "        <h2>Vous n'êtes pas connecté !</h2>
     ";
         }
-        // line 34
+        // line 35
         echo "
 ";
         
@@ -172,7 +176,7 @@ class __TwigTemplate_12caa6d5e45ce849ec7b8d6834972bb8f3da8e71d28d44f4242f9b58d13
 
     public function getDebugInfo()
     {
-        return array (  153 => 34,  149 => 32,  143 => 28,  140 => 27,  131 => 24,  127 => 23,  123 => 22,  119 => 21,  116 => 20,  113 => 19,  108 => 18,  106 => 17,  94 => 8,  91 => 7,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  157 => 35,  153 => 33,  146 => 29,  143 => 28,  140 => 27,  131 => 24,  127 => 23,  123 => 22,  119 => 21,  116 => 20,  113 => 19,  108 => 18,  106 => 17,  94 => 8,  91 => 7,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -205,6 +209,7 @@ class __TwigTemplate_12caa6d5e45ce849ec7b8d6834972bb8f3da8e71d28d44f4242f9b58d13
             {% endfor %}
             {% set i=0 %}
         </table>
+        <a href=\"{{path('newStudent', {'id':liste_students[0].nameclass})}}\"style=\"color:white;\" class=\"btn btn-info btn-lg btn-block\">Ajouter une nouvel étudiant</a>
 
         
     {% else %}

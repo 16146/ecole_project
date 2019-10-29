@@ -15,7 +15,7 @@
                             <td>
                                 <div class="card-header"><strong>{{ column.nameclass }}</strong> : {{ column.teacher }}</div>
                                     <div class="card-body">
-                                        <p class="card-title"><a href="{{ path('students',{'id': column.nameclass }) }}"style="color:white;" class="btn btn-primary">Voir la liste des élèves</a></p>
+                                        <p class="card-title"><a href="{{ path('students',{'id': column.nameclass }) }}"style="color:white;" class="btn btn-primary">Voir la liste des élèves</a>&nbsp;<a href="{{ path('deleteClass',{'id': column.nameclass}) }}" style="color:white;" class="btn btn-danger">Supprimer la classe</a></p>
                                     </div>
                             </td>
                         {% endfor %}

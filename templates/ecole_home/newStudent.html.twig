@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouvelle Classe{% endblock %}
+
+{% block body %}
+    {% if app.user %}
+        <h1>Ajouter une nouvel étudiant à la classe {{name_of_class}} :</h1>
+        {{ form_start(formStudent)}}
+            <label class="col-form-label col-form-label-lg" for="inputLarge">Nom de l'étudiant :</label>
+            {{form_widget(formStudent.student_name)}}
+            <label class="col-form-label col-form-label-lg" for="inputLarge">Prénom de l'étudiant :</label>
+            {{form_widget(formStudent.student_firstname)}}
+            <br>
+        {{ form_end(formStudent)}}
+
+    {% else %}
+        <h2>Vous n'êtes pas connecté !</h2>
+
+    {% endif %}
+
+{% endblock %}

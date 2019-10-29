@@ -6,8 +6,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Doctrine\Common\Persistence\ObjectManager;
 use App\Entity\Classes;
 use App\Entity\Students;
+use Symfony\Component\Form\Extension\Core\Type\{TextType,PasswordType,TextareaType,SubmitType};
+
 
 
 class EcoleHomeController extends AbstractController
@@ -71,11 +74,98 @@ class EcoleHomeController extends AbstractController
         
     }
     /**
-	*@Route("/home/new_class", name="newClass")
+	*@Route("/home/classes/delete/{id}", name="deleteClass")
     */
-    public function newClass()
+    public function deleteClass($id)
     {
-        return $this->render('ecole_home/newClass.html.twig');
+        $entityManager=$this->getDoctrine()->getManager();
+        $deletes=$entityManager->getRepository(Students::class)->findBy(['name_class' => $id]);
+        foreach ($deletes as $delete) {
+            $entityManager->remove($delete);
+            $entityManager->flush();
+        }
+
+        $deletes=$entityManager->getRepository(Classes::class)->findBy(['name_class' => $id]);
+        foreach ($deletes as $delete) {
+            $entityManager->remove($delete);
+            $entityManager->flush();
+        }
+
+        return $this->redirectToRoute('classes');
+    }
+
+    /**
+	*@Route("/home/classes/new_class", name="newClass")
+    */
+    public function newClass(Request $request, ObjectManager $manager)
+    {
+        $newClasse = new Classes();
+        $form = $this->createFormBuilder($newClasse)
+                ->add('teacher',TextType::class, [
+                    'attr' => [
+                        'placeholder'=>"Entrez ici..."
+                    ]
+                ])
+                ->add('name_class',TextType::class, [
+                    'attr'=> [
+                        'placeholder'=>"Entrez ici..."
+                    ]
+                ])
+                ->add('save', SubmitType::class,
+                ['label'=>'Enregistrer'])
+                ->getForm();
+        
+
+        $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid())
+        {
+            $manager->persist($newClasse);
+            $manager->flush();
+            return $this->redirectToRoute('classes');
+
+        }
+        return $this->render('ecole_home/newClass.html.twig',
+    [
+        'formClasse'=>$form->createView()
+    ]);
+        
+    }
+/**
+	*@Route("/home/classes/{id}/students/new_student/", name="newStudent")
+    */
+    public function newStudent(Request $request, ObjectManager $manager, $id)
+    {
+
+        $newStudent = new Students();
+        $form = $this->createFormBuilder($newStudent)
+                ->add('student_name',TextType::class, [
+                    'attr' => [
+                        'placeholder'=>"Entrez ici..."
+                    ]
+                ])
+                ->add('student_firstname',TextType::class, [
+                    'attr'=> [
+                        'placeholder'=>"Entrez ici..."
+                    ]
+                ])
+                ->add('save', SubmitType::class,
+                ['label'=>'Enregistrer'])
+                ->getForm();
+        
+
+        $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid())
+        {
+            $newStudent->setNameClass($id);
+            $manager->persist($newStudent);
+            $manager->flush();
+            return $this->redirectToRoute('students',['id'=>$id]);
+
+        }
+        return $this->render('ecole_home/newStudent.html.twig', [
+            'name_of_class'=>$id,
+            'formStudent'=>$form->createView()
+        ]);
         
     }
 }

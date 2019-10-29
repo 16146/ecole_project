@@ -10,7 +10,7 @@ return $getExpiry ? PHP_INT_MAX : Hydrator::hydrate(
     [
         'Symfony\\Component\\Routing\\Annotation\\Route' => [
             'path' => [
-                '/home/new_class',
+                '/home/classes/new_class',
             ],
             'name' => [
                 'newClass',

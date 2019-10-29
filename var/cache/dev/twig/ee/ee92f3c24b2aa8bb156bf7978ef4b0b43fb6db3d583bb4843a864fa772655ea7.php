@@ -96,9 +96,6 @@ class __TwigTemplate_ece0deebfccc7e6e2d72792990d1db088031058d85a3c20caeca995778b
         <div class=\"form-group\">
             <button style=\"font-size:25px;height:50px;width:100%\"  type=\"submit\" class=\"btn btn-primary\">Se connecter</button>
         </div>
-        
-
-
     </form>
 ";
         
@@ -147,9 +144,6 @@ class __TwigTemplate_ece0deebfccc7e6e2d72792990d1db088031058d85a3c20caeca995778b
         <div class=\"form-group\">
             <button style=\"font-size:25px;height:50px;width:100%\"  type=\"submit\" class=\"btn btn-primary\">Se connecter</button>
         </div>
-        
-
-
     </form>
 {% endblock %}", "security/login.html.twig", "C:\\wamp64\\www\\ecole\\templates\\security\\login.html.twig");
     }

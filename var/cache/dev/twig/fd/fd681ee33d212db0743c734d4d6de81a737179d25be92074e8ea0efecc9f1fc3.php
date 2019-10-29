@@ -87,16 +87,36 @@ class __TwigTemplate_61ef7782a0e766fc0cc74baf2e55077723dd4aa654462f0b8d541353d95
         // line 6
         echo "    ";
         if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 6, $this->source); })()), "user", [], "any", false, false, false, 6)) {
-            echo "   
-        
+            // line 7
+            echo "        <h1>Ajouter une nouvelle classe à la liste :</h1>
+        ";
+            // line 8
+            echo             $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["formClasse"]) || array_key_exists("formClasse", $context) ? $context["formClasse"] : (function () { throw new RuntimeError('Variable "formClasse" does not exist.', 8, $this->source); })()), 'form_start');
+            echo "
+            <label class=\"col-form-label col-form-label-lg\" for=\"inputLarge\">Nom complet du Professeur :</label>
+            ";
+            // line 10
+            echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["formClasse"]) || array_key_exists("formClasse", $context) ? $context["formClasse"] : (function () { throw new RuntimeError('Variable "formClasse" does not exist.', 10, $this->source); })()), "teacher", [], "any", false, false, false, 10), 'widget');
+            echo "
+            <label class=\"col-form-label col-form-label-lg\" for=\"inputLarge\">Nom de la classe :</label>
+            ";
+            // line 12
+            echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["formClasse"]) || array_key_exists("formClasse", $context) ? $context["formClasse"] : (function () { throw new RuntimeError('Variable "formClasse" does not exist.', 12, $this->source); })()), "name_class", [], "any", false, false, false, 12), 'widget');
+            echo "
+            <br>
+        ";
+            // line 14
+            echo             $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["formClasse"]) || array_key_exists("formClasse", $context) ? $context["formClasse"] : (function () { throw new RuntimeError('Variable "formClasse" does not exist.', 14, $this->source); })()), 'form_end');
+            echo "
+
     ";
         } else {
-            // line 9
+            // line 17
             echo "        <h2>Vous n'êtes pas connecté !</h2>
 
     ";
         }
-        // line 12
+        // line 20
         echo "
 ";
         
@@ -119,7 +139,7 @@ class __TwigTemplate_61ef7782a0e766fc0cc74baf2e55077723dd4aa654462f0b8d541353d95
 
     public function getDebugInfo()
     {
-        return array (  100 => 12,  95 => 9,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  120 => 20,  115 => 17,  109 => 14,  104 => 12,  99 => 10,  94 => 8,  91 => 7,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -129,8 +149,16 @@ class __TwigTemplate_61ef7782a0e766fc0cc74baf2e55077723dd4aa654462f0b8d541353d95
 {% block title %}Nouvelle Classe{% endblock %}
 
 {% block body %}
-    {% if app.user %}   
-        
+    {% if app.user %}
+        <h1>Ajouter une nouvelle classe à la liste :</h1>
+        {{ form_start(formClasse)}}
+            <label class=\"col-form-label col-form-label-lg\" for=\"inputLarge\">Nom complet du Professeur :</label>
+            {{form_widget(formClasse.teacher)}}
+            <label class=\"col-form-label col-form-label-lg\" for=\"inputLarge\">Nom de la classe :</label>
+            {{form_widget(formClasse.name_class)}}
+            <br>
+        {{ form_end(formClasse)}}
+
     {% else %}
         <h2>Vous n'êtes pas connecté !</h2>
 

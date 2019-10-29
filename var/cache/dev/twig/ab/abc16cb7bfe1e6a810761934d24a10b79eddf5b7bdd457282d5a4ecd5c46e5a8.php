@@ -117,7 +117,9 @@ class __TwigTemplate_320325f2bbaa53601a904f81b33a78be08ca32933464bd0f5af59c320a3
                                         <p class=\"card-title\"><a href=\"";
                     // line 18
                     echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("students", ["id" => twig_get_attribute($this->env, $this->source, $context["column"], "nameclass", [], "any", false, false, false, 18)]), "html", null, true);
-                    echo "\"style=\"color:white;\" class=\"btn btn-primary\">Voir la liste des élèves</a></p>
+                    echo "\"style=\"color:white;\" class=\"btn btn-primary\">Voir la liste des élèves</a>&nbsp;<a href=\"";
+                    echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("deleteClass", ["id" => twig_get_attribute($this->env, $this->source, $context["column"], "nameclass", [], "any", false, false, false, 18)]), "html", null, true);
+                    echo "\" style=\"color:white;\" class=\"btn btn-danger\">Supprimer la classe</a></p>
                                     </div>
                             </td>
                         ";
@@ -169,7 +171,7 @@ class __TwigTemplate_320325f2bbaa53601a904f81b33a78be08ca32933464bd0f5af59c320a3
 
     public function getDebugInfo()
     {
-        return array (  150 => 31,  145 => 28,  140 => 26,  136 => 24,  129 => 22,  119 => 18,  112 => 16,  109 => 15,  105 => 14,  102 => 13,  98 => 12,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  152 => 31,  147 => 28,  142 => 26,  138 => 24,  131 => 22,  119 => 18,  112 => 16,  109 => 15,  105 => 14,  102 => 13,  98 => 12,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -191,7 +193,7 @@ class __TwigTemplate_320325f2bbaa53601a904f81b33a78be08ca32933464bd0f5af59c320a3
                             <td>
                                 <div class=\"card-header\"><strong>{{ column.nameclass }}</strong> : {{ column.teacher }}</div>
                                     <div class=\"card-body\">
-                                        <p class=\"card-title\"><a href=\"{{ path('students',{'id': column.nameclass }) }}\"style=\"color:white;\" class=\"btn btn-primary\">Voir la liste des élèves</a></p>
+                                        <p class=\"card-title\"><a href=\"{{ path('students',{'id': column.nameclass }) }}\"style=\"color:white;\" class=\"btn btn-primary\">Voir la liste des élèves</a>&nbsp;<a href=\"{{ path('deleteClass',{'id': column.nameclass}) }}\" style=\"color:white;\" class=\"btn btn-danger\">Supprimer la classe</a></p>
                                     </div>
                             </td>
                         {% endfor %}
