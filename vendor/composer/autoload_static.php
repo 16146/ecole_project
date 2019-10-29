@@ -13,7 +13,9 @@ class ComposerStaticInit734ca73453cc8eeaa40b0888a4d5420c
         '25072dd6e2470089de65ae7bf11d3109' => __DIR__ . '/..' . '/symfony/polyfill-php72/bootstrap.php',
         '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
         'f598d06aa772fa33d905e87be6398fb1' => __DIR__ . '/..' . '/symfony/polyfill-intl-idn/bootstrap.php',
+        'e88992873b7765f9b5710cab95ba5dd7' => __DIR__ . '/..' . '/hoa/consistency/Prelude.php',
         '6a47392539ca2329373e0d33e1dba053' => __DIR__ . '/..' . '/symfony/polyfill-intl-icu/bootstrap.php',
+        '3e76f7f02b41af8cea96018933f6b7e3' => __DIR__ . '/..' . '/hoa/protocol/Wrapper.php',
         '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
     );
 
@@ -112,6 +114,28 @@ class ComposerStaticInit734ca73453cc8eeaa40b0888a4d5420c
         'M' => 
         array (
             'Monolog\\' => 8,
+            'Metadata\\' => 9,
+        ),
+        'J' => 
+        array (
+            'JMS\\Serializer\\' => 15,
+            'JMS\\SerializerBundle\\' => 21,
+        ),
+        'H' => 
+        array (
+            'Hoa\\Zformat\\' => 12,
+            'Hoa\\Visitor\\' => 12,
+            'Hoa\\Ustring\\' => 12,
+            'Hoa\\Stream\\' => 11,
+            'Hoa\\Regex\\' => 10,
+            'Hoa\\Protocol\\' => 13,
+            'Hoa\\Math\\' => 9,
+            'Hoa\\Iterator\\' => 13,
+            'Hoa\\File\\' => 9,
+            'Hoa\\Exception\\' => 14,
+            'Hoa\\Event\\' => 10,
+            'Hoa\\Consistency\\' => 16,
+            'Hoa\\Compiler\\' => 13,
         ),
         'F' => 
         array (
@@ -446,6 +470,70 @@ class ComposerStaticInit734ca73453cc8eeaa40b0888a4d5420c
         'Monolog\\' => 
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
+        ),
+        'Metadata\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/jms/metadata/src',
+        ),
+        'JMS\\Serializer\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/jms/serializer/src',
+        ),
+        'JMS\\SerializerBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/jms/serializer-bundle',
+        ),
+        'Hoa\\Zformat\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/hoa/zformat',
+        ),
+        'Hoa\\Visitor\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/hoa/visitor',
+        ),
+        'Hoa\\Ustring\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/hoa/ustring',
+        ),
+        'Hoa\\Stream\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/hoa/stream',
+        ),
+        'Hoa\\Regex\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/hoa/regex',
+        ),
+        'Hoa\\Protocol\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/hoa/protocol',
+        ),
+        'Hoa\\Math\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/hoa/math',
+        ),
+        'Hoa\\Iterator\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/hoa/iterator',
+        ),
+        'Hoa\\File\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/hoa/file',
+        ),
+        'Hoa\\Exception\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/hoa/exception',
+        ),
+        'Hoa\\Event\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/hoa/event',
+        ),
+        'Hoa\\Consistency\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/hoa/consistency',
+        ),
+        'Hoa\\Compiler\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/hoa/compiler',
         ),
         'Fig\\Link\\' => 
         array (

@@ -21,7 +21,7 @@ return [
     'students' => [['id'], ['_controller' => 'App\\Controller\\EcoleHomeController::students'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/home/classes']], [], []],
     'deleteStudent' => [[], ['_controller' => 'App\\Controller\\EcoleHomeController::deleteStudent'], [], [['text', '/home/students/delete/{id1,id2}']], [], []],
     'deleteClass' => [['id'], ['_controller' => 'App\\Controller\\EcoleHomeController::deleteClass'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/home/classes/delete']], [], []],
-    'newClass' => [[], ['_controller' => 'App\\Controller\\EcoleHomeController::newClass'], [], [['text', '/home/classes/new_class']], [], []],
+    'newClass' => [[], ['_controller' => 'App\\Controller\\EcoleHomeController::newClass'], [], [['text', '/home/new_class']], [], []],
     'newStudent' => [['id'], ['_controller' => 'App\\Controller\\EcoleHomeController::newStudent'], [], [['text', '/students/new_student/'], ['variable', '/', '[^/]++', 'id', true], ['text', '/home/classes']], [], []],
     'login' => [[], ['_controller' => 'App\\Controller\\SecurityController::login'], [], [['text', '/login']], [], []],
     'logout' => [[], ['_controller' => 'App\\Controller\\SecurityController::logout'], [], [['text', '/logout']], [], []],

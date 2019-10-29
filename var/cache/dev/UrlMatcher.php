@@ -17,6 +17,7 @@ return [
         '/admin' => [[['_route' => 'admin', '_controller' => 'App\\Controller\\EcoleHomeController::admin'], null, null, null, false, false, null]],
         '/home/classes' => [[['_route' => 'classes', '_controller' => 'App\\Controller\\EcoleHomeController::classes'], null, null, null, false, false, null]],
         '/home/students/delete/{id1,id2}' => [[['_route' => 'deleteStudent', '_controller' => 'App\\Controller\\EcoleHomeController::deleteStudent'], null, null, null, false, false, null]],
+        '/home/new_class' => [[['_route' => 'newClass', '_controller' => 'App\\Controller\\EcoleHomeController::newClass'], null, null, null, false, false, null]],
         '/login' => [[['_route' => 'login', '_controller' => 'App\\Controller\\SecurityController::login'], null, null, null, false, false, null]],
         '/logout' => [[['_route' => 'logout', '_controller' => 'App\\Controller\\SecurityController::logout'], null, null, null, false, false, null]],
     ],
@@ -40,8 +41,7 @@ return [
                 .'|/home/classes/(?'
                     .'|([^/]++)(*:194)'
                     .'|delete/([^/]++)(*:217)'
-                    .'|new_class(*:234)'
-                    .'|([^/]++)/students/new_student(*:271)'
+                    .'|([^/]++)/students/new_student(*:254)'
                 .')'
             .')/?$}sDu',
     ],
@@ -54,9 +54,8 @@ return [
         149 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception::cssAction'], ['token'], null, null, false, false, null]],
         159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
         194 => [[['_route' => 'students', '_controller' => 'App\\Controller\\EcoleHomeController::students'], ['id'], null, null, false, true, null]],
-        217 => [[['_route' => 'deleteClass', '_controller' => 'App\\Controller\\EcoleHomeController::deleteClass'], ['id'], null, null, false, true, null]],
-        234 => [[['_route' => 'newClass', '_controller' => 'App\\Controller\\EcoleHomeController::newClass'], [], null, null, false, false, null]],
-        271 => [
+        217 => [[['_route' => 'deleteClass', '_controller' => 'App\\Controller\\EcoleHomeController::deleteClass'], ['id'], ['GET' => 0, 'ID' => 1], null, false, true, null]],
+        254 => [
             [['_route' => 'newStudent', '_controller' => 'App\\Controller\\EcoleHomeController::newStudent'], ['id'], null, null, true, false, null],
             [null, null, null, null, false, false, 0],
         ],
