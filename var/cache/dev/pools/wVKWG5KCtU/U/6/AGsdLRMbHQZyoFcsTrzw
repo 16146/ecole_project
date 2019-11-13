@@ -1,0 +1,26 @@
+<?php
+
+namespace Symfony\Component\VarExporter\Internal;
+
+return $getExpiry ? PHP_INT_MAX : Hydrator::hydrate(
+    $o = [
+        clone (Registry::$prototypes['FOS\\RestBundle\\Controller\\Annotations\\Delete'] ?? Registry::p('FOS\\RestBundle\\Controller\\Annotations\\Delete')),
+    ],
+    null,
+    [
+        'Symfony\\Component\\Routing\\Annotation\\Route' => [
+            'path' => [
+                '/api/students/{id}',
+            ],
+            'methods' => [
+                [
+                    'DELETE',
+                ],
+            ],
+        ],
+    ],
+    [
+        $o[0],
+    ],
+    []
+);

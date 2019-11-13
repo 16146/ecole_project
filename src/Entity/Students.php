@@ -38,12 +38,12 @@ class Students
 
     public function getIdStudent(): ?string
     {
-        return $this->id_student;
+        return $this->id;
     }
 
-    public function setIdStudent(string $id_student): self
+    public function setIdStudent(string $id): self
     {
-        $this->id_student = $id_student;
+        $this->id = $id;
 
         return $this;
     }

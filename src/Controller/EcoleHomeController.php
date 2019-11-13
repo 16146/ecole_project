@@ -74,7 +74,7 @@ class EcoleHomeController extends AbstractController
         
     }
     /**
-    *@Route("/home/classes/delete/{id}", name="deleteClass", methods={"GET","id"})
+    *@Route("/home/classes/delete/{id}", name="deleteClass")
     */
     public function deleteClass($id)
     {
@@ -130,7 +130,7 @@ class EcoleHomeController extends AbstractController
     ]);
         
     }
-/**
+    /**
 	*@Route("/home/classes/{id}/students/new_student/", name="newStudent")
     */
     public function newStudent(Request $request, ObjectManager $manager, $id)

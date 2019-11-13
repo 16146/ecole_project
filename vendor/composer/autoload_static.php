@@ -111,6 +111,10 @@ class ComposerStaticInit734ca73453cc8eeaa40b0888a4d5420c
             'PhpParser\\' => 10,
             'PackageVersions\\' => 16,
         ),
+        'N' => 
+        array (
+            'Negotiation\\' => 12,
+        ),
         'M' => 
         array (
             'Monolog\\' => 8,
@@ -141,6 +145,7 @@ class ComposerStaticInit734ca73453cc8eeaa40b0888a4d5420c
         array (
             'Fig\\Link\\' => 9,
             'Faker\\' => 6,
+            'FOS\\RestBundle\\' => 15,
         ),
         'E' => 
         array (
@@ -441,7 +446,7 @@ class ComposerStaticInit734ca73453cc8eeaa40b0888a4d5420c
         ),
         'Sensio\\Bundle\\FrameworkExtraBundle\\' => 
         array (
-            0 => __DIR__ . '/..' . '/sensio/framework-extra-bundle',
+            0 => __DIR__ . '/..' . '/sensio/framework-extra-bundle/src',
         ),
         'Psr\\Log\\' => 
         array (
@@ -466,6 +471,10 @@ class ComposerStaticInit734ca73453cc8eeaa40b0888a4d5420c
         'PackageVersions\\' => 
         array (
             0 => __DIR__ . '/..' . '/ocramius/package-versions/src/PackageVersions',
+        ),
+        'Negotiation\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/willdurand/negotiation/src/Negotiation',
         ),
         'Monolog\\' => 
         array (
@@ -542,6 +551,10 @@ class ComposerStaticInit734ca73453cc8eeaa40b0888a4d5420c
         'Faker\\' => 
         array (
             0 => __DIR__ . '/..' . '/fzaninotto/faker/src/Faker',
+        ),
+        'FOS\\RestBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/friendsofsymfony/rest-bundle',
         ),
         'Egulias\\EmailValidator\\' => 
         array (
@@ -637,6 +650,13 @@ class ComposerStaticInit734ca73453cc8eeaa40b0888a4d5420c
             'ProxyManager\\' => 
             array (
                 0 => __DIR__ . '/..' . '/ocramius/proxy-manager/src',
+            ),
+        ),
+        'J' => 
+        array (
+            'JsonpCallbackValidator' => 
+            array (
+                0 => __DIR__ . '/..' . '/willdurand/jsonp-callback-validator/src',
             ),
         ),
     );

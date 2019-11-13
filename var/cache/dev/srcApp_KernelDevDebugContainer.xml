@@ -24,6 +24,7 @@
       <parameter key="WebServerBundle">Symfony\Bundle\WebServerBundle\WebServerBundle</parameter>
       <parameter key="DoctrineFixturesBundle">Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle</parameter>
       <parameter key="JMSSerializerBundle">JMS\SerializerBundle\JMSSerializerBundle</parameter>
+      <parameter key="FOSRestBundle">FOS\RestBundle\FOSRestBundle</parameter>
     </parameter>
     <parameter key="kernel.bundles_metadata" type="collection">
       <parameter key="FrameworkBundle" type="collection">
@@ -31,7 +32,7 @@
         <parameter key="namespace">Symfony\Bundle\FrameworkBundle</parameter>
       </parameter>
       <parameter key="SensioFrameworkExtraBundle" type="collection">
-        <parameter key="path">C:\wamp64\www\ecole\vendor\sensio\framework-extra-bundle</parameter>
+        <parameter key="path">C:\wamp64\www\ecole\vendor\sensio\framework-extra-bundle\src</parameter>
         <parameter key="namespace">Sensio\Bundle\FrameworkExtraBundle</parameter>
       </parameter>
       <parameter key="DoctrineCacheBundle" type="collection">
@@ -85,6 +86,10 @@
       <parameter key="JMSSerializerBundle" type="collection">
         <parameter key="path">C:\wamp64\www\ecole\vendor\jms\serializer-bundle</parameter>
         <parameter key="namespace">JMS\SerializerBundle</parameter>
+      </parameter>
+      <parameter key="FOSRestBundle" type="collection">
+        <parameter key="path">C:\wamp64\www\ecole\vendor\friendsofsymfony\rest-bundle</parameter>
+        <parameter key="namespace">FOS\RestBundle</parameter>
       </parameter>
     </parameter>
     <parameter key="kernel.charset">UTF-8</parameter>
@@ -394,6 +399,13 @@
     <service id="EasyCorp\EasyLog\EasyLogHandler" class="EasyCorp\EasyLog\EasyLogHandler" public="false">
       <argument>C:\wamp64\www\ecole\var\log/dev.log</argument>
     </service>
+    <service id="App\Controller\ApiController" class="App\Controller\ApiController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.CDOTD6..App\Controller\ApiController"/>
+      </call>
+    </service>
     <service id="App\Controller\EcoleHomeController" class="App\Controller\EcoleHomeController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
@@ -418,7 +430,13 @@
     <service id="App\DataFixtures\StudentsFixtures" class="App\DataFixtures\StudentsFixtures" autowire="true" autoconfigure="true">
       <tag name="doctrine.fixture.orm"/>
     </service>
+    <service id="App\Form\ClassesType" class="App\Form\ClassesType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
     <service id="App\Form\RegistrationType" class="App\Form\RegistrationType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Form\StudentsType" class="App\Form\StudentsType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
     <service id="App\Repository\ClassesRepository" class="App\Repository\ClassesRepository" autowire="true" autoconfigure="true">
@@ -534,6 +552,7 @@
         <argument key="swiftmailer.email_sender.listener" type="service" id="swiftmailer.email_sender.listener" on-invalid="ignore_uninitialized"/>
         <argument key="monolog.handler.main" type="service" id="monolog.handler.main" on-invalid="ignore_uninitialized"/>
         <argument key="monolog.handler.console" type="service" id="monolog.handler.console" on-invalid="ignore_uninitialized"/>
+        <argument key="fos_rest.view_handler.default" type="service" id="fos_rest.view_handler.default" on-invalid="ignore_uninitialized"/>
       </argument>
       <argument type="collection">
         <argument key="cache.app">reset</argument>
@@ -554,6 +573,7 @@
         <argument key="swiftmailer.email_sender.listener">reset</argument>
         <argument key="monolog.handler.main">reset</argument>
         <argument key="monolog.handler.console">reset</argument>
+        <argument key="fos_rest.view_handler.default">reset</argument>
       </argument>
     </service>
     <service id="reverse_container" class="Symfony\Component\DependencyInjection\ReverseContainer" public="false">
@@ -764,7 +784,9 @@
         <argument>Symfony\Bridge\Doctrine\Form\Type</argument>
       </argument>
       <argument type="collection">
+        <argument>App\Form\ClassesType</argument>
         <argument>App\Form\RegistrationType</argument>
+        <argument>App\Form\StudentsType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FormType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\ChoiceType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FileType</argument>
@@ -1030,7 +1052,7 @@
       <argument type="service" id="form.registry"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension" public="false">
-      <argument type="service" id=".service_locator.Gvj_Qqe"/>
+      <argument type="service" id=".service_locator.zEt.1ZL"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.transformation_failure_handling"/>
@@ -1184,9 +1206,6 @@
         <argument type="collection">
           <argument type="service" id="doctrine.orm.validator_initializer"/>
         </argument>
-      </call>
-      <call method="addLoader">
-        <argument type="service" id="doctrine.orm.default_entity_manager.validator_loader"/>
       </call>
       <factory class="Symfony\Component\Validator\Validation" method="createValidatorBuilder"/>
     </service>
@@ -1518,7 +1537,7 @@
           <argument>C:\wamp64\www\ecole/translations</argument>
           <argument>C:\wamp64\www\ecole\vendor\symfony\framework-bundle/Resources/translations</argument>
           <argument>C:\wamp64\www\ecole\src/Resources/FrameworkBundle/translations</argument>
-          <argument>C:\wamp64\www\ecole\vendor\sensio\framework-extra-bundle/Resources/translations</argument>
+          <argument>C:\wamp64\www\ecole\vendor\sensio\framework-extra-bundle\src/Resources/translations</argument>
           <argument>C:\wamp64\www\ecole\src/Resources/SensioFrameworkExtraBundle/translations</argument>
           <argument>C:\wamp64\www\ecole\vendor\doctrine\doctrine-cache-bundle/Resources/translations</argument>
           <argument>C:\wamp64\www\ecole\src/Resources/DoctrineCacheBundle/translations</argument>
@@ -1546,6 +1565,8 @@
           <argument>C:\wamp64\www\ecole\src/Resources/DoctrineFixturesBundle/translations</argument>
           <argument>C:\wamp64\www\ecole\vendor\jms\serializer-bundle/Resources/translations</argument>
           <argument>C:\wamp64\www\ecole\src/Resources/JMSSerializerBundle/translations</argument>
+          <argument>C:\wamp64\www\ecole\vendor\friendsofsymfony\rest-bundle/Resources/translations</argument>
+          <argument>C:\wamp64\www\ecole\src/Resources/FOSRestBundle/translations</argument>
           <argument>C:\wamp64\www\ecole\src/Resources/translations</argument>
         </argument>
       </argument>
@@ -1983,6 +2004,14 @@
           <argument>onKernelController</argument>
         </argument>
         <argument>0</argument>
+      </call>
+      <call method="addListener">
+        <argument>kernel.request</argument>
+        <argument type="collection">
+          <argument type="service" id="fos_rest.body_listener"/>
+          <argument>onKernelRequest</argument>
+        </argument>
+        <argument>10</argument>
       </call>
       <call method="addListener">
         <argument>kernel.response</argument>
@@ -2433,6 +2462,18 @@
         <argument type="service" id="routing.loader.service"/>
       </call>
       <call method="addLoader">
+        <argument type="service" id="fos_rest.routing.loader.directory"/>
+      </call>
+      <call method="addLoader">
+        <argument type="service" id="fos_rest.routing.loader.controller"/>
+      </call>
+      <call method="addLoader">
+        <argument type="service" id="fos_rest.routing.loader.yaml_collection"/>
+      </call>
+      <call method="addLoader">
+        <argument type="service" id="fos_rest.routing.loader.xml_collection"/>
+      </call>
+      <call method="addLoader">
         <argument type="service" id="routing.loader.annotation"/>
       </call>
       <call method="addLoader">
@@ -2589,6 +2630,7 @@
     </service>
     <service id="serializer" class="Symfony\Component\Serializer\Serializer" public="true">
       <argument type="collection">
+        <argument type="service" id="fos_rest.serializer.form_error_normalizer"/>
         <argument type="service" id="serializer.normalizer.json_serializable"/>
         <argument type="service" id="serializer.normalizer.datetime"/>
         <argument type="service" id="serializer.normalizer.constraint_violation_list"/>
@@ -3181,11 +3223,6 @@
       <tag name="property_info.type_extractor" priority="-999"/>
       <tag name="property_info.access_extractor" priority="-999"/>
       <argument type="service" id="doctrine.orm.default_entity_manager"/>
-    </service>
-    <service id="doctrine.orm.default_entity_manager.validator_loader" class="Symfony\Bridge\Doctrine\Validator\DoctrineLoader">
-      <tag name="validator.auto_mapper" priority="-100"/>
-      <argument type="service" id="doctrine.orm.default_entity_manager"/>
-      <argument>null</argument>
     </service>
     <service id="doctrine_migrations.diff_command" class="Doctrine\Bundle\MigrationsBundle\Command\MigrationsDiffDoctrineCommand">
       <tag name="console.command"/>
@@ -4757,7 +4794,7 @@
       <argument type="service" id="debug.stopwatch"/>
     </service>
     <service id="jms_serializer.handler_registry" class="JMS\Serializer\Handler\LazyHandlerRegistry">
-      <argument type="service" id=".service_locator.aPpDWpz"/>
+      <argument type="service" id=".service_locator._hTQqso"/>
       <argument type="collection">
         <argument key="1" type="collection">
           <argument key="ArrayCollection" type="collection">
@@ -4880,26 +4917,6 @@
               <argument>serializeDateInterval</argument>
             </argument>
           </argument>
-          <argument key="Symfony\Component\Form\Form" type="collection">
-            <argument key="xml" type="collection">
-              <argument>jms_serializer.form_error_handler</argument>
-              <argument>serializeFormToxml</argument>
-            </argument>
-            <argument key="json" type="collection">
-              <argument>jms_serializer.form_error_handler</argument>
-              <argument>serializeFormTojson</argument>
-            </argument>
-          </argument>
-          <argument key="Symfony\Component\Form\FormError" type="collection">
-            <argument key="xml" type="collection">
-              <argument>jms_serializer.form_error_handler</argument>
-              <argument>serializeFormErrorToxml</argument>
-            </argument>
-            <argument key="json" type="collection">
-              <argument>jms_serializer.form_error_handler</argument>
-              <argument>serializeFormErrorTojson</argument>
-            </argument>
-          </argument>
           <argument key="JMS\Serializer\Handler\iterable" type="collection">
             <argument key="json" type="collection">
               <argument>jms_serializer.iterator_handler</argument>
@@ -4938,6 +4955,26 @@
             <argument key="xml" type="collection">
               <argument>jms_serializer.iterator_handler</argument>
               <argument>serializeIterable</argument>
+            </argument>
+          </argument>
+          <argument key="Symfony\Component\Form\Form" type="collection">
+            <argument key="xml" type="collection">
+              <argument>fos_rest.serializer.form_error_handler</argument>
+              <argument>serializeFormToxml</argument>
+            </argument>
+            <argument key="json" type="collection">
+              <argument>fos_rest.serializer.form_error_handler</argument>
+              <argument>serializeFormTojson</argument>
+            </argument>
+          </argument>
+          <argument key="Symfony\Component\Form\FormError" type="collection">
+            <argument key="xml" type="collection">
+              <argument>fos_rest.serializer.form_error_handler</argument>
+              <argument>serializeFormErrorToxml</argument>
+            </argument>
+            <argument key="json" type="collection">
+              <argument>fos_rest.serializer.form_error_handler</argument>
+              <argument>serializeFormErrorTojson</argument>
             </argument>
           </argument>
         </argument>
@@ -5098,11 +5135,6 @@
       <argument>UTC</argument>
       <argument>true</argument>
     </service>
-    <service id="jms_serializer.form_error_handler" class="JMS\Serializer\Handler\FormErrorHandler" public="false">
-      <tag name="jms_serializer.subscribing_handler"/>
-      <argument type="service" id="translator.data_collector" on-invalid="null"/>
-      <argument>validators</argument>
-    </service>
     <service id="jms_serializer.iterator_handler" class="JMS\Serializer\Handler\IteratorHandler" public="false">
       <tag name="jms_serializer.subscribing_handler"/>
     </service>
@@ -5258,6 +5290,137 @@
     </service>
     <service id="jms_serializer.configured_serialization_context_factory" class="JMS\SerializerBundle\ContextFactory\ConfiguredContextFactory" public="false"/>
     <service id="jms_serializer.configured_deserialization_context_factory" class="JMS\SerializerBundle\ContextFactory\ConfiguredContextFactory" public="false"/>
+    <service id="fos_rest.view_handler.default" class="FOS\RestBundle\View\ViewHandler" public="false">
+      <tag name="kernel.reset" method="reset"/>
+      <argument type="service" id="router.default"/>
+      <argument type="service" id="fos_rest.serializer.jms"/>
+      <argument>null</argument>
+      <argument type="service" id="request_stack"/>
+      <argument type="collection">
+        <argument key="json">false</argument>
+        <argument key="xml">false</argument>
+        <argument key="html">true</argument>
+      </argument>
+      <argument>400</argument>
+      <argument>204</argument>
+      <argument>false</argument>
+      <argument type="collection">
+        <argument key="html">302</argument>
+      </argument>
+      <argument>twig</argument>
+      <argument type="collection">
+        <argument key="serializeNullStrategy">false</argument>
+      </argument>
+    </service>
+    <service id="fos_rest.view_handler.jsonp" class="FOS\RestBundle\View\JsonpHandler" public="false">
+      <argument></argument>
+    </service>
+    <service id="fos_rest.routing.loader.directory" class="FOS\RestBundle\Routing\Loader\DirectoryRouteLoader" public="false">
+      <tag name="routing.loader"/>
+      <argument type="service" id="file_locator"/>
+      <argument type="service" id="fos_rest.routing.loader.processor"/>
+    </service>
+    <service id="fos_rest.routing.loader.controller" class="FOS\RestBundle\Routing\Loader\RestRouteLoader" public="false">
+      <tag name="routing.loader"/>
+      <argument type="service" id="service_container"/>
+      <argument type="service" id="file_locator"/>
+      <argument type="service" id="controller_name_converter"/>
+      <argument type="service" id="fos_rest.routing.loader.reader.controller"/>
+      <argument>null</argument>
+    </service>
+    <service id="fos_rest.routing.loader.processor" class="FOS\RestBundle\Routing\Loader\RestRouteProcessor" public="false"/>
+    <service id="fos_rest.routing.loader.yaml_collection" class="FOS\RestBundle\Routing\Loader\RestYamlCollectionLoader" public="false">
+      <tag name="routing.loader"/>
+      <argument type="service" id="file_locator"/>
+      <argument type="service" id="fos_rest.routing.loader.processor"/>
+      <argument>true</argument>
+      <argument type="collection">
+        <argument key="json">false</argument>
+        <argument key="xml">false</argument>
+        <argument key="html">true</argument>
+      </argument>
+      <argument>null</argument>
+    </service>
+    <service id="fos_rest.routing.loader.xml_collection" class="FOS\RestBundle\Routing\Loader\RestXmlCollectionLoader" public="false">
+      <tag name="routing.loader"/>
+      <argument type="service" id="file_locator"/>
+      <argument type="service" id="fos_rest.routing.loader.processor"/>
+      <argument>true</argument>
+      <argument type="collection">
+        <argument key="json">false</argument>
+        <argument key="xml">false</argument>
+        <argument key="html">true</argument>
+      </argument>
+      <argument>null</argument>
+    </service>
+    <service id="fos_rest.routing.loader.reader.controller" class="FOS\RestBundle\Routing\Loader\Reader\RestControllerReader" public="false">
+      <argument type="service" id="fos_rest.routing.loader.reader.action"/>
+      <argument type="service" id="annotations.cached_reader"/>
+    </service>
+    <service id="fos_rest.routing.loader.reader.action" class="FOS\RestBundle\Routing\Loader\Reader\RestActionReader" public="false">
+      <argument type="service" id="annotations.cached_reader"/>
+      <argument type="service" id="fos_rest.request.param_fetcher.reader"/>
+      <argument type="service" id="fos_rest.inflector.doctrine"/>
+      <argument>true</argument>
+      <argument type="collection">
+        <argument key="json">false</argument>
+        <argument key="xml">false</argument>
+        <argument key="html">true</argument>
+      </argument>
+      <argument>true</argument>
+    </service>
+    <service id="fos_rest.inflector.doctrine" class="FOS\RestBundle\Inflector\DoctrineInflector" public="false"/>
+    <service id="fos_rest.request.param_fetcher" class="FOS\RestBundle\Request\ParamFetcher">
+      <argument type="service" id="service_container"/>
+      <argument type="service" id="fos_rest.request.param_fetcher.reader"/>
+      <argument type="service" id="request_stack"/>
+      <argument type="service" id="debug.validator" on-invalid="null"/>
+    </service>
+    <service id="fos_rest.request.param_fetcher.reader" class="FOS\RestBundle\Request\ParamReader" public="false">
+      <argument type="service" id="annotations.cached_reader"/>
+    </service>
+    <service id="fos_rest.serializer.jms" class="FOS\RestBundle\Serializer\JMSSerializerAdapter" public="false" lazy="true">
+      <argument type="service" id="jms_serializer.serializer"/>
+      <argument type="service" id="jms_serializer.configured_serialization_context_factory"/>
+      <argument type="service" id="jms_serializer.configured_deserialization_context_factory"/>
+    </service>
+    <service id="fos_rest.serializer.symfony" class="FOS\RestBundle\Serializer\SymfonySerializerAdapter" public="false" lazy="true">
+      <argument type="service" id="serializer"/>
+    </service>
+    <service id="fos_rest.serializer.form_error_normalizer" class="FOS\RestBundle\Serializer\Normalizer\FormErrorNormalizer" public="false">
+      <tag name="serializer.normalizer" priority="-10"/>
+    </service>
+    <service id="fos_rest.normalizer.camel_keys" class="FOS\RestBundle\Normalizer\CamelKeysNormalizer"/>
+    <service id="fos_rest.normalizer.camel_keys_with_leading_underscore" class="FOS\RestBundle\Normalizer\CamelKeysNormalizerWithLeadingUnderscore"/>
+    <service id="fos_rest.decoder.json" class="FOS\RestBundle\Decoder\JsonDecoder"/>
+    <service id="fos_rest.decoder.jsontoform" class="FOS\RestBundle\Decoder\JsonToFormDecoder"/>
+    <service id="fos_rest.decoder.xml" class="FOS\RestBundle\Decoder\XmlDecoder"/>
+    <service id="fos_rest.decoder_provider" class="FOS\RestBundle\Decoder\ContainerDecoderProvider">
+      <argument type="service" id=".service_locator.kuaDcLh"/>
+      <argument type="collection">
+        <argument key="json">fos_rest.decoder.json</argument>
+        <argument key="xml">fos_rest.decoder.xml</argument>
+      </argument>
+    </service>
+    <service id="fos_rest.body_listener" class="FOS\RestBundle\EventListener\BodyListener">
+      <tag name="kernel.event_listener" event="kernel.request" method="onKernelRequest" priority="10"/>
+      <tag name="container.hot_path"/>
+      <argument type="service" id="fos_rest.decoder_provider"/>
+      <argument>false</argument>
+      <call method="setDefaultFormat">
+        <argument>null</argument>
+      </call>
+    </service>
+    <service id=".service_locator.kuaDcLh" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="fos_rest.decoder.json" type="service" id="fos_rest.decoder.json"/>
+        <argument key="fos_rest.decoder.xml" type="service" id="fos_rest.decoder.xml"/>
+      </argument>
+    </service>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\ApiController" class="App\Controller\ApiController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ApiController" class="App\Controller\ApiController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\ApiController" class="App\Controller\ApiController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\EcoleHomeController" class="App\Controller\EcoleHomeController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\EcoleHomeController" class="App\Controller\EcoleHomeController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\EcoleHomeController" class="App\Controller\EcoleHomeController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -5270,8 +5433,12 @@
     <service id=".abstract.instanceof.App\DataFixtures\ClassFixtures" class="App\DataFixtures\ClassFixtures" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\FixturesBundle\ORMFixtureInterface.0.App\DataFixtures\StudentsFixtures" class="App\DataFixtures\StudentsFixtures" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\DataFixtures\StudentsFixtures" class="App\DataFixtures\StudentsFixtures" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ClassesType" class="App\Form\ClassesType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\ClassesType" class="App\Form\ClassesType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\RegistrationType" class="App\Form\RegistrationType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\RegistrationType" class="App\Form\RegistrationType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\StudentsType" class="App\Form\StudentsType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\StudentsType" class="App\Form\StudentsType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ClassesRepository" class="App\Repository\ClassesRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\ClassesRepository" class="App\Repository\ClassesRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\StudentsRepository" class="App\Repository\StudentsRepository" autowire="true" abstract="true"/>
@@ -5522,10 +5689,12 @@
       <argument type="service" id="debug.argument_resolver.not_tagged_controller.inner"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-    <service id=".service_locator.Gvj_Qqe" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.zEt.1ZL" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="App\Form\ClassesType" type="service" id="App\Form\ClassesType"/>
         <argument key="App\Form\RegistrationType" type="service" id="App\Form\RegistrationType"/>
+        <argument key="App\Form\StudentsType" type="service" id="App\Form\StudentsType"/>
         <argument key="Symfony\Bridge\Doctrine\Form\Type\EntityType" type="service" id="form.type.entity"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\ChoiceType" type="service" id="form.type.choice"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\FileType" type="service" id="form.type.file"/>
@@ -5709,6 +5878,10 @@
       <configurator class="Symfony\Bundle\FrameworkBundle\DependencyInjection\Compiler\AddDebugLogProcessorPass" method="configureLogger"/>
     </service>
     <service id="monolog.handler.null_internal" class="Monolog\Handler\NullHandler"/>
+    <service id="fos_rest.serializer.form_error_handler" class="FOS\RestBundle\Serializer\Normalizer\FormErrorHandler">
+      <tag name="jms_serializer.subscribing_handler"/>
+      <argument type="service" id="fos_rest.serializer.form_error_handler.inner"/>
+    </service>
     <service id=".service_locator.yQVjGlt" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -5741,6 +5914,12 @@
         <argument key="session" type="service" id="session" on-invalid="ignore"/>
         <argument key="twig" type="service" id="twig" on-invalid="ignore"/>
       </argument>
+    </service>
+    <service id=".service_locator.CDOTD6..App\Controller\ApiController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator_context" id="App\Controller\ApiController"/>
+      <argument>App\Controller\ApiController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.CDOTD6." method="withContext"/>
     </service>
     <service id=".service_locator.CDOTD6..App\Controller\EcoleHomeController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\EcoleHomeController"/>
@@ -5853,6 +6032,10 @@
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver" public="false">
       <argument type="service" id=".service_locator.VFcEnU6"/>
+    </service>
+    <service id="fos_rest.serializer.form_error_handler.inner" class="JMS\Serializer\Handler\FormErrorHandler" public="false">
+      <argument type="service" id="translator.data_collector" on-invalid="null"/>
+      <argument>validators</argument>
     </service>
     <service id=".service_locator.UwRI0uT" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
@@ -6110,13 +6293,13 @@
         <argument key="jms_serializer.stopwatch_subscriber" type="service" id="jms_serializer.stopwatch_subscriber"/>
       </argument>
     </service>
-    <service id=".service_locator.aPpDWpz" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator._hTQqso" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="fos_rest.serializer.form_error_handler" type="service" id="fos_rest.serializer.form_error_handler"/>
         <argument key="jms_serializer.array_collection_handler" type="service" id="jms_serializer.array_collection_handler"/>
         <argument key="jms_serializer.constraint_violation_handler" type="service" id="jms_serializer.constraint_violation_handler"/>
         <argument key="jms_serializer.datetime_handler" type="service" id="jms_serializer.datetime_handler"/>
-        <argument key="jms_serializer.form_error_handler" type="service" id="jms_serializer.form_error_handler"/>
         <argument key="jms_serializer.iterator_handler" type="service" id="jms_serializer.iterator_handler"/>
       </argument>
     </service>
@@ -6258,9 +6441,15 @@
     <service id="jms_serializer.accessor_strategy" alias="jms_serializer.accessor_strategy.default" public="false"/>
     <service id="JMS\Serializer\ContextFactory\SerializationContextFactoryInterface" alias="jms_serializer.configured_serialization_context_factory" public="false"/>
     <service id="JMS\Serializer\ContextFactory\DeserializationContextFactoryInterface" alias="jms_serializer.configured_deserialization_context_factory" public="false"/>
+    <service id="FOS\RestBundle\View\ViewHandlerInterface" alias="fos_rest.view_handler.default"/>
+    <service id="FOS\RestBundle\Request\ParamFetcherInterface" alias="fos_rest.request.param_fetcher"/>
+    <service id="fos_rest.router" alias="router.default"/>
+    <service id="fos_rest.view_handler" alias="fos_rest.view_handler.default" public="true"/>
+    <service id="fos_rest.inflector" alias="fos_rest.inflector.doctrine"/>
     <service id="argument_resolver.controller_locator" alias=".service_locator.VFcEnU6"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
+    <service id="fos_rest.serializer" alias="fos_rest.serializer.jms"/>
     <service id="validator" alias="debug.validator" public="true"/>
     <service id="translator.data_collector.inner" alias="translator.default" public="false"/>
     <service id="event_dispatcher" alias="debug.event_dispatcher" public="true"/>
@@ -6275,6 +6464,7 @@
     <service id="argument_resolver.default" alias="debug.argument_resolver.default" public="false"/>
     <service id="argument_resolver.variadic" alias="debug.argument_resolver.variadic" public="false"/>
     <service id="argument_resolver.not_tagged_controller" alias="debug.argument_resolver.not_tagged_controller" public="false"/>
+    <service id="jms_serializer.form_error_handler" alias="fos_rest.serializer.form_error_handler" public="false"/>
     <service id=".service_locator.VdFTLMb" alias=".service_locator.LtnrEkg" public="false"/>
     <service id="console.command.public_alias.doctrine_cache.contains_command" alias="doctrine_cache.contains_command" public="true"/>
     <service id="console.command.public_alias.doctrine_cache.delete_command" alias="doctrine_cache.delete_command" public="true"/>
@@ -6290,5 +6480,6 @@
     <service id="console.command.public_alias.doctrine_migrations.status_command" alias="doctrine_migrations.status_command" public="true"/>
     <service id="console.command.public_alias.doctrine_migrations.up_to_date_command" alias="doctrine_migrations.up_to_date_command" public="true"/>
     <service id="console.command.public_alias.doctrine_migrations.version_command" alias="doctrine_migrations.version_command" public="true"/>
+    <service id="fos_rest.serializer.jms_handler_registry" alias="jms_serializer.handler_registry" public="true"/>
   </services>
 </container>
