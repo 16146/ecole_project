@@ -2518,3 +2518,4 @@ b7b598,::1,GET,http://localhost/ecole/public/index.php/api/newclass,1573653607,2
 85589b,::1,GET,http://localhost/ecole/public/index.php/api/newstudent,1573653975,78cd4b,200
 78cd4b,::1,POST,http://localhost/ecole/public/index.php/api/newstudent,1573653975,,500
 7003b4,::1,POST,http://localhost/ecole/public/index.php/api/newstudent,1573654025,,200
+dc2929,::1,GET,http://localhost/ecole/public/index.php/home,1574238034,,200
