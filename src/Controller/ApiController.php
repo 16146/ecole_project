@@ -66,7 +66,7 @@ class ApiController extends AbstractController
         
     }
     /**
-     * @Rest\Post("/api/classes")
+     * @Rest\Get("/api/classes")
      */
     public function APIclasses()
     {
