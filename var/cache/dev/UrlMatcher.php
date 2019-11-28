@@ -13,7 +13,7 @@ return [
         '/_profiler/search_bar' => [[['_route' => '_profiler_search_bar', '_controller' => 'web_profiler.controller.profiler::searchBarAction'], null, null, null, false, false, null]],
         '/_profiler/phpinfo' => [[['_route' => '_profiler_phpinfo', '_controller' => 'web_profiler.controller.profiler::phpinfoAction'], null, null, null, false, false, null]],
         '/_profiler/open' => [[['_route' => '_profiler_open_file', '_controller' => 'web_profiler.controller.profiler::openAction'], null, null, null, false, false, null]],
-        '/api/classes' => [[['_route' => 'app_api_apiclasses', '_controller' => 'App\\Controller\\ApiController::APIclasses'], null, ['GET' => 0], null, false, false, null]],
+        '/api/classes' => [[['_route' => 'api_classes', '_controller' => 'App\\Controller\\ApiController::APIclasses'], null, ['GET' => 0, 'OPTIONS' => 1], null, false, false, null]],
         '/api/newclass' => [[['_route' => 'app_api_apiaddclass', '_controller' => 'App\\Controller\\ApiController::APIaddClass'], null, ['POST' => 0], null, false, false, null]],
         '/api/newstudent' => [[['_route' => 'app_api_apiaddstudent', '_controller' => 'App\\Controller\\ApiController::APIaddStudent'], null, ['POST' => 0], null, false, false, null]],
         '/home' => [[['_route' => 'home', '_controller' => 'App\\Controller\\EcoleHomeController::home'], null, null, null, false, false, null]],

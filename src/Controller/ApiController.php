@@ -66,10 +66,19 @@ class ApiController extends AbstractController
         
     }
     /**
-     * @Rest\Get("/api/classes")
+     * @Route("api/classes",name="api_classes", methods={"GET", "OPTIONS"})
      */
-    public function APIclasses()
+    public function APIclasses(Request $request)
     {
+        if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS')
+        {
+            $response= new Response();
+            $response->headers->set('Content-Type', 'application/text');
+            $response->headers->set('Access-Control-Allow-Origin', '*');
+            $response->headers->set("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE, OPTIONS");
+            $response->headers->set('Access-Control-Allow-Headers', 'Content-Type', true);
+            return $response;   
+        }
         $encoders = array(new JsonEncoder());
         $normalizers = array (new ObjectNormalizer());
         $serializer =  new Serializer($normalizers, $encoders);
@@ -78,6 +87,10 @@ class ApiController extends AbstractController
 
         $jsonContent = $serializer->serialize($classes, 'json');
         $response = new JsonResponse();
+        $response->headers->set('Content-Type', 'application/text');
+        $response->headers->set('Access-Control-Allow-Origin', '*');
+        $response->headers->set("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE, OPTIONS");
+        $response->headers->set('Access-Control-Allow-Headers', 'Content-Type', true);
         $response->setContent($jsonContent);
         return $response;
         

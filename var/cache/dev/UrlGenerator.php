@@ -17,7 +17,7 @@ return [
     '_profiler_exception_css' => [['token'], ['_controller' => 'web_profiler.controller.exception::cssAction'], [], [['text', '/exception.css'], ['variable', '/', '[^/]++', 'token', true], ['text', '/_profiler']], [], []],
     'app_api_apideleteclass' => [['id'], ['_controller' => 'App\\Controller\\ApiController::APIdeleteClass'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/api/classes']], [], []],
     'app_api_apideletestudent' => [['id'], ['_controller' => 'App\\Controller\\ApiController::APIdeleteStudent'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/api/students']], [], []],
-    'app_api_apiclasses' => [[], ['_controller' => 'App\\Controller\\ApiController::APIclasses'], [], [['text', '/api/classes']], [], []],
+    'api_classes' => [[], ['_controller' => 'App\\Controller\\ApiController::APIclasses'], [], [['text', '/api/classes']], [], []],
     'app_api_apiclass' => [['id'], ['_controller' => 'App\\Controller\\ApiController::APIclass'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/api/classes']], [], []],
     'app_api_apistudents' => [['id'], ['_controller' => 'App\\Controller\\ApiController::APIstudents'], [], [['text', '/students'], ['variable', '/', '[^/]++', 'id', true], ['text', '/api/classes']], [], []],
     'app_api_apiaddclass' => [[], ['_controller' => 'App\\Controller\\ApiController::APIaddClass'], [], [['text', '/api/newclass']], [], []],
