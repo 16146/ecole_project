@@ -64,7 +64,7 @@ return [
         149 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception::cssAction'], ['token'], null, null, false, false, null]],
         159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
         196 => [
-            [['_route' => 'app_api_apideleteclass', '_controller' => 'App\\Controller\\ApiController::APIdeleteClass'], ['id'], ['DELETE' => 0], null, false, true, null],
+            [['_route' => 'api_deleteClass', '_controller' => 'App\\Controller\\ApiController::APIdeleteClass'], ['id'], ['DELETE' => 0, 'OPTIONS' => 1], null, false, true, null],
             [['_route' => 'app_api_apiclass', '_controller' => 'App\\Controller\\ApiController::APIclass'], ['id'], ['POST' => 0], null, false, true, null],
         ],
         213 => [[['_route' => 'app_api_apistudents', '_controller' => 'App\\Controller\\ApiController::APIstudents'], ['id'], ['POST' => 0], null, false, false, null]],

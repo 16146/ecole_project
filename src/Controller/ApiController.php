@@ -23,10 +23,11 @@ use App\Form\StudentsType;
 class ApiController extends AbstractController
 {    
     /**
-     * @Rest\Delete("/api/classes/{id}")
+     * @Route("/api/classes/{id}",name="api_deleteClass", methods={"DELETE", "OPTIONS"})
      */
     public function APIdeleteClass($id)
     {
+
         $entityManager=$this->getDoctrine()->getManager();
         $deletes=$entityManager->getRepository(Students::class)->findBy(['name_class' => $id]);
         foreach ($deletes as $delete) {
@@ -39,11 +40,16 @@ class ApiController extends AbstractController
             $entityManager->remove($delete);
             $entityManager->flush();
         }
-        return new JsonResponse(
+        $response= new JsonResponse(
             [
                'message' => 'Class deleted', 
                'HTTP'=>Response::HTTP_NO_CONTENT
             ]);
+            $response->headers->set('Content-Type', 'application/text');
+            $response->headers->set('Access-Control-Allow-Origin', '*');
+            $response->headers->set("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE, OPTIONS");
+            $response->headers->set('Access-Control-Allow-Headers', 'Content-Type', true);
+            return $response;
     }
     /**
      * @Rest\Delete("/api/students/{id}")
@@ -152,25 +158,36 @@ class ApiController extends AbstractController
         $form->submit($data);
 
         if (false === $form->isValid()) {
-            return new JsonResponse(
+            $response=new JsonResponse(
                 [
                     'status' => 'error',
                     'errors' => $this->formErrorSerializer->convertFormToArray($form),
                 ],
                 JsonResponse::HTTP_BAD_REQUEST
             );
+            $response->headers->set('Content-Type', 'application/text');
+            $response->headers->set('Access-Control-Allow-Origin', '*');
+            $response->headers->set("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE, OPTIONS");
+            $response->headers->set('Access-Control-Allow-Headers', 'Content-Type', true);
+            return $response;
+            
         }
         $doctrine=$this->getDoctrine()->getManager();
         $doctrine->persist($class);
         $doctrine->flush();
 
-        return new JsonResponse(
+        $response=new JsonResponse(
             [
                 'status' => 'Class added',
                 'HTTP'=>JsonResponse::HTTP_CREATED
             ]
             
         );
+        $response->headers->set('Content-Type', 'application/text');
+        $response->headers->set('Access-Control-Allow-Origin', '*');
+        $response->headers->set("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE, OPTIONS");
+        $response->headers->set('Access-Control-Allow-Headers', 'Content-Type', true);
+        return $response;
 
     }
     /**
