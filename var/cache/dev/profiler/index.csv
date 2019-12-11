@@ -2793,3 +2793,15 @@ e0d92b,::1,DELETE,http://localhost/ecole/public/index.php/api/classes/Classe%20M
 6278e0,::1,GET,http://localhost/ecole/public/index.php/api/classes,1575459485,,200
 979f4c,::1,GET,http://localhost/ecole/public/index.php/api/classes,1575459525,,200
 394e9e,::1,GET,http://localhost/ecole/public/index.php/api/classes,1575459535,,200
+9957ca,::1,GET,http://localhost/ecole/public/index.php/api/classes,1576050660,0ef107,200
+0ef107,::1,PUT,http://localhost/ecole/public/index.php/api/classes,1576050660,,405
+86dc17,::1,PUT,http://localhost/ecole/public/index.php/api/classes,1576050704,,200
+cfbcab,::1,GET,http://localhost/ecole/public/index.php/api/classes,1576050710,,200
+576128,::1,GET,http://localhost/ecole/public/index.php/api/classes,1576055495,,200
+b24c82,::1,GET,http://localhost/ecole/public/index.php/api/students,1576055517,9ba890,200
+9ba890,::1,GET,http://localhost/ecole/public/index.php/api/students,1576055517,,405
+7ab6c6,::1,GET,http://localhost/ecole/public/index.php/api/Classe%20Aldebaran/students,1576055528,0b87fa,200
+0b87fa,::1,GET,http://localhost/ecole/public/index.php/api/Classe%20Aldebaran/students,1576055528,,404
+cdaa3a,::1,GET,http://localhost/ecole/public/index.php/api/classes,1576055540,,200
+4c2f33,::1,GET,http://localhost/ecole/public/index.php/api/Classe%20Gloire/students,1576055560,76c380,200
+76c380,::1,GET,http://localhost/ecole/public/index.php/api/Classe%20Gloire/students,1576055560,,404

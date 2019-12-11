@@ -102,7 +102,7 @@ class ApiController extends AbstractController
         
     }
     /**
-     * @Rest\Post("/api/classes/{id}")
+     * @Rest\Get("/api/classes/{id}")
      */
     public function APIclass($id)
     {
@@ -119,7 +119,7 @@ class ApiController extends AbstractController
         
     }
     /**
-     * @Rest\Post("/api/classes/{id}/students")
+     * @Rest\Get("/api/classes/{id}/students")
      */
     public function APIstudents($id)
     {
@@ -147,7 +147,7 @@ class ApiController extends AbstractController
         
     }
     /**
-     * @Rest\Post("/api/newclass")
+     * @Route("api/classes",name="add_api_classes", methods={"PUT", "OPTIONS"})
      */
     public function APIaddClass(Request $request)
     {
@@ -191,7 +191,7 @@ class ApiController extends AbstractController
 
     }
     /**
-     * @Rest\Post("/api/newstudent")
+     * @Route("api/students",name="add_api_students", methods={"PUT", "OPTIONS"})
      */
     public function APIaddStudent(Request $request)
     {

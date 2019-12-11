@@ -4,17 +4,21 @@ namespace Symfony\Component\VarExporter\Internal;
 
 return $getExpiry ? PHP_INT_MAX : Hydrator::hydrate(
     $o = [
-        clone (Registry::$prototypes['FOS\\RestBundle\\Controller\\Annotations\\Post'] ?? Registry::p('FOS\\RestBundle\\Controller\\Annotations\\Post')),
+        clone (Registry::$prototypes['Symfony\\Component\\Routing\\Annotation\\Route'] ?? Registry::p('Symfony\\Component\\Routing\\Annotation\\Route')),
     ],
     null,
     [
         'Symfony\\Component\\Routing\\Annotation\\Route' => [
             'path' => [
-                '/api/newstudent',
+                'api/students',
+            ],
+            'name' => [
+                'add_api_students',
             ],
             'methods' => [
                 [
-                    'POST',
+                    'PUT',
+                    'OPTIONS',
                 ],
             ],
         ],
