@@ -58,6 +58,15 @@ class ApiController extends AbstractController
      */
     public function APIaddClass(Classes $class = null, Request $request, $id=null)
     {
+        if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS')
+        {
+            $response= new Response();
+            $response->headers->set('Content-Type', 'application/text');
+            $response->headers->set('Access-Control-Allow-Origin', '*');
+            $response->headers->set("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE, OPTIONS");
+            $response->headers->set('Access-Control-Allow-Headers', 'Content-Type', true);
+            return $response;   
+        }
         if ($id)
         {
             $entityManager=$this->getDoctrine()->getManager();
@@ -83,7 +92,7 @@ class ApiController extends AbstractController
                 ],
                 JsonResponse::HTTP_BAD_REQUEST
             );
-            $response->headers->set('Content-Type', 'application/text');
+            $response->headers->set('Content-Type', 'application/json');
             $response->headers->set('Access-Control-Allow-Origin', '*');
             $response->headers->set("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE, OPTIONS");
             $response->headers->set('Access-Control-Allow-Headers', 'Content-Type',true);
@@ -115,7 +124,7 @@ class ApiController extends AbstractController
             ]
             
         );
-        $response->headers->set('Content-Type', 'application/text');
+        $response->headers->set('Content-Type', 'application/json');
         $response->headers->set('Access-Control-Allow-Origin', '*');
         $response->headers->set("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE, OPTIONS");
         $response->headers->set('Access-Control-Allow-Headers', 'Content-Type',true);
