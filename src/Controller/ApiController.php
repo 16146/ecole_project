@@ -54,11 +54,15 @@ class ApiController extends AbstractController
     }
     /**
      * @Route("api/classes",name="add_api_classes", methods={"PUT", "OPTIONS"})
+     * @Route("api/classes/{id}/edit", name="api_editClass", methods={"POST", "OPTIONS"})
      */
-    public function APIaddClass(Request $request)
+    public function APIaddClass(Classes $class = null, Request $request)
     {
+        if(!$class)
+        {
+            $class = new Classes();
+        }
         $data = json_decode($request->getContent(),true);
-        $class=new Classes();
         $form = $this->createForm(ClassesType::class, $class);
 
         $form->submit($data);
@@ -168,8 +172,9 @@ class ApiController extends AbstractController
 
     /**
      * @Route("api/students",name="api_add_students", methods={"PUT", "OPTIONS"})
+     * *@Route("api/students/{id}/edit", name="api_editStudent", methods={"POST", "OPTIONS"})
      */
-    public function APIaddStudent(Request $request)
+    public function APIaddStudent(Students $student = null, Request $request)
     {
         if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS')
         {
@@ -181,9 +186,11 @@ class ApiController extends AbstractController
             return $response;   
         }
         $data = json_decode($request->getContent(),true);
-        $student=new Students();
+        if(!$student)
+        {
+            $student = new Students();
+        }
         $form = $this->createForm(StudentsType::class, $student);
-
         $form->submit($data);
 
         if (false === $form->isValid()) {

@@ -65,7 +65,17 @@ class __TwigTemplate_e6b6c2b33973fa24dab0b852459b1c928d50e3120e4d72dc93d5a0b786e
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        echo "Nouvelle Classe";
+        // line 4
+        echo "    ";
+        if ((isset($context["editMode"]) || array_key_exists("editMode", $context) ? $context["editMode"] : (function () { throw new RuntimeError('Variable "editMode" does not exist.', 4, $this->source); })())) {
+            // line 5
+            echo "        Edit Etudiant
+    ";
+        } else {
+            // line 7
+            echo "        Nouvel Etudiant
+    ";
+        }
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -74,7 +84,7 @@ class __TwigTemplate_e6b6c2b33973fa24dab0b852459b1c928d50e3120e4d72dc93d5a0b786e
 
     }
 
-    // line 5
+    // line 11
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -84,41 +94,52 @@ class __TwigTemplate_e6b6c2b33973fa24dab0b852459b1c928d50e3120e4d72dc93d5a0b786e
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 6
+        // line 12
         echo "    ";
-        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 6, $this->source); })()), "user", [], "any", false, false, false, 6)) {
-            // line 7
-            echo "        <h1>Ajouter une nouvel étudiant à la classe ";
-            echo twig_escape_filter($this->env, (isset($context["name_of_class"]) || array_key_exists("name_of_class", $context) ? $context["name_of_class"] : (function () { throw new RuntimeError('Variable "name_of_class" does not exist.', 7, $this->source); })()), "html", null, true);
-            echo " :</h1>
+        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 12, $this->source); })()), "user", [], "any", false, false, false, 12)) {
+            // line 13
+            echo "        ";
+            if ((isset($context["editMode"]) || array_key_exists("editMode", $context) ? $context["editMode"] : (function () { throw new RuntimeError('Variable "editMode" does not exist.', 13, $this->source); })())) {
+                // line 14
+                echo "            <h1>Modifier l'étudiant sélectionné de la ";
+                echo twig_escape_filter($this->env, (isset($context["name_of_class"]) || array_key_exists("name_of_class", $context) ? $context["name_of_class"] : (function () { throw new RuntimeError('Variable "name_of_class" does not exist.', 14, $this->source); })()), "html", null, true);
+                echo " :</h1>
         ";
-            // line 8
-            echo             $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["formStudent"]) || array_key_exists("formStudent", $context) ? $context["formStudent"] : (function () { throw new RuntimeError('Variable "formStudent" does not exist.', 8, $this->source); })()), 'form_start');
+            } else {
+                // line 16
+                echo "            <h1>Ajouter un nouvel étudiant à la classe ";
+                echo twig_escape_filter($this->env, (isset($context["name_of_class"]) || array_key_exists("name_of_class", $context) ? $context["name_of_class"] : (function () { throw new RuntimeError('Variable "name_of_class" does not exist.', 16, $this->source); })()), "html", null, true);
+                echo " :</h1>
+        ";
+            }
+            // line 18
+            echo "        ";
+            echo             $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["formStudent"]) || array_key_exists("formStudent", $context) ? $context["formStudent"] : (function () { throw new RuntimeError('Variable "formStudent" does not exist.', 18, $this->source); })()), 'form_start');
             echo "
             <label class=\"col-form-label col-form-label-lg\" for=\"inputLarge\">Nom de l'étudiant :</label>
             ";
-            // line 10
-            echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["formStudent"]) || array_key_exists("formStudent", $context) ? $context["formStudent"] : (function () { throw new RuntimeError('Variable "formStudent" does not exist.', 10, $this->source); })()), "student_name", [], "any", false, false, false, 10), 'widget');
+            // line 20
+            echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["formStudent"]) || array_key_exists("formStudent", $context) ? $context["formStudent"] : (function () { throw new RuntimeError('Variable "formStudent" does not exist.', 20, $this->source); })()), "student_name", [], "any", false, false, false, 20), 'widget');
             echo "
             <label class=\"col-form-label col-form-label-lg\" for=\"inputLarge\">Prénom de l'étudiant :</label>
             ";
-            // line 12
-            echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["formStudent"]) || array_key_exists("formStudent", $context) ? $context["formStudent"] : (function () { throw new RuntimeError('Variable "formStudent" does not exist.', 12, $this->source); })()), "student_firstname", [], "any", false, false, false, 12), 'widget');
+            // line 22
+            echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["formStudent"]) || array_key_exists("formStudent", $context) ? $context["formStudent"] : (function () { throw new RuntimeError('Variable "formStudent" does not exist.', 22, $this->source); })()), "student_firstname", [], "any", false, false, false, 22), 'widget');
             echo "
             <br>
         ";
-            // line 14
-            echo             $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["formStudent"]) || array_key_exists("formStudent", $context) ? $context["formStudent"] : (function () { throw new RuntimeError('Variable "formStudent" does not exist.', 14, $this->source); })()), 'form_end');
+            // line 24
+            echo             $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["formStudent"]) || array_key_exists("formStudent", $context) ? $context["formStudent"] : (function () { throw new RuntimeError('Variable "formStudent" does not exist.', 24, $this->source); })()), 'form_end');
             echo "
 
     ";
         } else {
-            // line 17
+            // line 27
             echo "        <h2>Vous n'êtes pas connecté !</h2>
 
     ";
         }
-        // line 20
+        // line 30
         echo "
 ";
         
@@ -141,18 +162,28 @@ class __TwigTemplate_e6b6c2b33973fa24dab0b852459b1c928d50e3120e4d72dc93d5a0b786e
 
     public function getDebugInfo()
     {
-        return array (  122 => 20,  117 => 17,  111 => 14,  106 => 12,  101 => 10,  96 => 8,  91 => 7,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  143 => 30,  138 => 27,  132 => 24,  127 => 22,  122 => 20,  116 => 18,  110 => 16,  104 => 14,  101 => 13,  98 => 12,  88 => 11,  76 => 7,  72 => 5,  69 => 4,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("{% extends 'base.html.twig' %}
 
-{% block title %}Nouvelle Classe{% endblock %}
+{% block title %}
+    {% if editMode %}
+        Edit Etudiant
+    {% else %}
+        Nouvel Etudiant
+    {% endif %}
+{% endblock %}
 
 {% block body %}
     {% if app.user %}
-        <h1>Ajouter une nouvel étudiant à la classe {{name_of_class}} :</h1>
+        {% if editMode %}
+            <h1>Modifier l'étudiant sélectionné de la {{name_of_class}} :</h1>
+        {% else %}
+            <h1>Ajouter un nouvel étudiant à la classe {{name_of_class}} :</h1>
+        {% endif %}
         {{ form_start(formStudent)}}
             <label class=\"col-form-label col-form-label-lg\" for=\"inputLarge\">Nom de l'étudiant :</label>
             {{form_widget(formStudent.student_name)}}

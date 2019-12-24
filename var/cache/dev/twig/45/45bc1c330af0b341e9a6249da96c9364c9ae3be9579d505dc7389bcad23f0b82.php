@@ -93,11 +93,11 @@ class __TwigTemplate_885b8b53cfe7ce2b3fb4c00251e958137ad0413c1b6e6262908ef64c916
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("logout");
             echo "\">Déconnexion</a>
                     </li>
-                    ";
+                </ul>
+                ";
         }
-        // line 30
-        echo "                </ul>
-            </div>
+        // line 31
+        echo "            </div>
             
         </nav>
         <div class=\"container\">        
@@ -206,7 +206,7 @@ class __TwigTemplate_885b8b53cfe7ce2b3fb4c00251e958137ad0413c1b6e6262908ef64c916
 
     public function getDebugInfo()
     {
-        return array (  180 => 37,  162 => 35,  144 => 8,  125 => 5,  113 => 38,  111 => 37,  108 => 36,  106 => 35,  99 => 30,  93 => 27,  90 => 26,  88 => 25,  83 => 23,  77 => 20,  66 => 12,  61 => 9,  59 => 8,  53 => 5,  47 => 1,);
+        return array (  180 => 37,  162 => 35,  144 => 8,  125 => 5,  113 => 38,  111 => 37,  108 => 36,  106 => 35,  100 => 31,  93 => 27,  90 => 26,  88 => 25,  83 => 23,  77 => 20,  66 => 12,  61 => 9,  59 => 8,  53 => 5,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -239,8 +239,8 @@ class __TwigTemplate_885b8b53cfe7ce2b3fb4c00251e958137ad0413c1b6e6262908ef64c916
                     <li class=\"nav-item\">
                         <a class=\"nav-link\" href=\"{{path('logout')}}\">Déconnexion</a>
                     </li>
-                    {% endif %}
                 </ul>
+                {% endif %}
             </div>
             
         </nav>

@@ -5607,7 +5607,21 @@
         <argument>make:migration</argument>
       </call>
     </service>
-    <service id=".service_locator.Txvqv4R" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.xcgvAnc" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection"/>
+    </service>
+    <service id=".service_locator.R6jrWnW" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection"/>
+    </service>
+    <service id=".service_locator.GDtE0BI" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="manager" type="service" id="doctrine.orm.default_entity_manager"/>
+      </argument>
+    </service>
+    <service id=".service_locator._H1cT3m" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="manager" type="service" id="doctrine.orm.default_entity_manager"/>
@@ -5619,14 +5633,14 @@
         <argument key="utils" type="service" id="security.authentication_utils"/>
       </argument>
     </service>
-    <service id=".service_locator.VFcEnU6" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.B0M2Kjq" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
-        <argument key="App\Controller\EcoleHomeController::newClass" type="service" id=".service_locator.Txvqv4R"/>
-        <argument key="App\Controller\EcoleHomeController::newStudent" type="service" id=".service_locator.Txvqv4R"/>
+        <argument key="App\Controller\EcoleHomeController::newClass" type="service" id=".service_locator.GDtE0BI"/>
+        <argument key="App\Controller\EcoleHomeController::newStudent" type="service" id=".service_locator._H1cT3m"/>
         <argument key="App\Controller\SecurityController::login" type="service" id=".service_locator.oHXyyai"/>
-        <argument key="App\Controller\EcoleHomeController:newClass" type="service" id=".service_locator.Txvqv4R"/>
-        <argument key="App\Controller\EcoleHomeController:newStudent" type="service" id=".service_locator.Txvqv4R"/>
+        <argument key="App\Controller\EcoleHomeController:newClass" type="service" id=".service_locator.GDtE0BI"/>
+        <argument key="App\Controller\EcoleHomeController:newStudent" type="service" id=".service_locator._H1cT3m"/>
         <argument key="App\Controller\SecurityController:login" type="service" id=".service_locator.oHXyyai"/>
       </argument>
     </service>
@@ -6026,12 +6040,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator.VFcEnU6"/>
+      <argument type="service" id=".service_locator.B0M2Kjq"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver" public="false">
-      <argument type="service" id=".service_locator.VFcEnU6"/>
+      <argument type="service" id=".service_locator.B0M2Kjq"/>
     </service>
     <service id="fos_rest.serializer.form_error_handler.inner" class="JMS\Serializer\Handler\FormErrorHandler" public="false">
       <argument type="service" id="translator.data_collector" on-invalid="null"/>
@@ -6446,7 +6460,7 @@
     <service id="fos_rest.router" alias="router.default"/>
     <service id="fos_rest.view_handler" alias="fos_rest.view_handler.default" public="true"/>
     <service id="fos_rest.inflector" alias="fos_rest.inflector.doctrine"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.VFcEnU6"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.B0M2Kjq"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="fos_rest.serializer" alias="fos_rest.serializer.jms"/>

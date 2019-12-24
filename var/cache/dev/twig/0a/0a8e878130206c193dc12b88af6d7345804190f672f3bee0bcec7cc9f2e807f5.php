@@ -111,56 +111,62 @@ class __TwigTemplate_3182942f5abe5132f0a2c64d5e552e6d0967042cd4dac9f16d4c3ac814a
                 echo "                ";
                 $context['_parent'] = $context;
                 $context['_seq'] = twig_ensure_traversable((isset($context["liste_students"]) || array_key_exists("liste_students", $context) ? $context["liste_students"] : (function () { throw new RuntimeError('Variable "liste_students" does not exist.', 19, $this->source); })()));
-                foreach ($context['_seq'] as $context["_key"] => $context["students"]) {
+                foreach ($context['_seq'] as $context["_key"] => $context["student"]) {
                     // line 20
                     echo "                    ";
                     $context["i"] = ((isset($context["i"]) || array_key_exists("i", $context) ? $context["i"] : (function () { throw new RuntimeError('Variable "i" does not exist.', 20, $this->source); })()) + 1);
                     // line 21
-                    echo "                    <tr class=\"table-primary\">
+                    echo "                    <tr>
                         <th scope=\"row\">";
                     // line 22
                     echo twig_escape_filter($this->env, (isset($context["i"]) || array_key_exists("i", $context) ? $context["i"] : (function () { throw new RuntimeError('Variable "i" does not exist.', 22, $this->source); })()), "html", null, true);
                     echo "</th>
                         <td>";
                     // line 23
-                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["students"], "studentname", [], "any", false, false, false, 23), "html", null, true);
+                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["student"], "studentname", [], "any", false, false, false, 23), "html", null, true);
                     echo "</td>
                         <td>";
                     // line 24
-                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["students"], "studentfirstname", [], "any", false, false, false, 24), "html", null, true);
+                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["student"], "studentfirstname", [], "any", false, false, false, 24), "html", null, true);
                     echo "</td>
-                        <td><a href=\"";
-                    // line 25
-                    echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("deleteStudent", ["id1" => twig_get_attribute($this->env, $this->source, $context["students"], "id", [], "any", false, false, false, 25), "id2" => twig_get_attribute($this->env, $this->source, $context["students"], "nameclass", [], "any", false, false, false, 25)]), "html", null, true);
-                    echo "\"style=\"color:white;\" class=\"btn btn-primary\">Supprimer</a></td>
+                        <td>                        
+                        <a href=\"";
+                    // line 26
+                    echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("editStudent", ["id" => twig_get_attribute($this->env, $this->source, $context["student"], "id", [], "any", false, false, false, 26)]), "html", null, true);
+                    echo "\"style=\"color:white;\" class=\"btn btn-danger\">Editer</a>
+                        <a href=\"";
+                    // line 27
+                    echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("deleteStudent", ["id1" => twig_get_attribute($this->env, $this->source, $context["student"], "id", [], "any", false, false, false, 27), "id2" => twig_get_attribute($this->env, $this->source, $context["student"], "nameclass", [], "any", false, false, false, 27)]), "html", null, true);
+                    echo "\"style=\"color:white;\" class=\"btn btn-primary\">Supprimer</a>
+                        </td>
                     </tr>
                 ";
                 }
                 $_parent = $context['_parent'];
-                unset($context['_seq'], $context['_iterated'], $context['_key'], $context['students'], $context['_parent'], $context['loop']);
+                unset($context['_seq'], $context['_iterated'], $context['_key'], $context['student'], $context['_parent'], $context['loop']);
                 $context = array_intersect_key($context, $_parent) + $_parent;
-                // line 28
+                // line 31
                 echo "            ";
             }
             echo " 
             ";
-            // line 29
+            // line 32
             $context["i"] = 0;
-            // line 30
+            // line 33
             echo "        </table>
         <a href=\"";
-            // line 31
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("newStudent", ["id" => (isset($context["name_class"]) || array_key_exists("name_class", $context) ? $context["name_class"] : (function () { throw new RuntimeError('Variable "name_class" does not exist.', 31, $this->source); })())]), "html", null, true);
-            echo "\"style=\"color:white;\" class=\"btn btn-info btn-lg btn-block\">Ajouter une nouvel étudiant</a>
+            // line 34
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("newStudent", ["id1" => (isset($context["name_class"]) || array_key_exists("name_class", $context) ? $context["name_class"] : (function () { throw new RuntimeError('Variable "name_class" does not exist.', 34, $this->source); })())]), "html", null, true);
+            echo "\"style=\"color:white;\" class=\"btn btn-info btn-lg btn-block\">Ajouter un nouvel étudiant</a>
 
         
     ";
         } else {
-            // line 35
+            // line 38
             echo "        <h2>Vous n'êtes pas connecté !</h2>
     ";
         }
-        // line 37
+        // line 40
         echo "
 ";
         
@@ -183,7 +189,7 @@ class __TwigTemplate_3182942f5abe5132f0a2c64d5e552e6d0967042cd4dac9f16d4c3ac814a
 
     public function getDebugInfo()
     {
-        return array (  164 => 37,  160 => 35,  153 => 31,  150 => 30,  148 => 29,  143 => 28,  134 => 25,  130 => 24,  126 => 23,  122 => 22,  119 => 21,  116 => 20,  111 => 19,  108 => 18,  106 => 17,  94 => 8,  91 => 7,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  170 => 40,  166 => 38,  159 => 34,  156 => 33,  154 => 32,  149 => 31,  139 => 27,  135 => 26,  130 => 24,  126 => 23,  122 => 22,  119 => 21,  116 => 20,  111 => 19,  108 => 18,  106 => 17,  94 => 8,  91 => 7,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -206,19 +212,22 @@ class __TwigTemplate_3182942f5abe5132f0a2c64d5e552e6d0967042cd4dac9f16d4c3ac814a
         <tbody>
             {% set i=0 %}
             {% if liste_students is not empty %}
-                {% for students in liste_students %}
+                {% for student in liste_students %}
                     {% set i=i+1 %}
-                    <tr class=\"table-primary\">
+                    <tr>
                         <th scope=\"row\">{{ i }}</th>
-                        <td>{{ students.studentname }}</td>
-                        <td>{{ students.studentfirstname }}</td>
-                        <td><a href=\"{{ path('deleteStudent',{'id1': students.id, 'id2': students.nameclass}) }}\"style=\"color:white;\" class=\"btn btn-primary\">Supprimer</a></td>
+                        <td>{{ student.studentname }}</td>
+                        <td>{{ student.studentfirstname }}</td>
+                        <td>                        
+                        <a href=\"{{ path('editStudent',{'id': student.id}) }}\"style=\"color:white;\" class=\"btn btn-danger\">Editer</a>
+                        <a href=\"{{ path('deleteStudent',{'id1': student.id, 'id2': student.nameclass}) }}\"style=\"color:white;\" class=\"btn btn-primary\">Supprimer</a>
+                        </td>
                     </tr>
                 {% endfor %}
             {% endif %} 
             {% set i=0 %}
         </table>
-        <a href=\"{{path('newStudent', {'id': name_class })}}\"style=\"color:white;\" class=\"btn btn-info btn-lg btn-block\">Ajouter une nouvel étudiant</a>
+        <a href=\"{{path('newStudent', {'id1': name_class })}}\"style=\"color:white;\" class=\"btn btn-info btn-lg btn-block\">Ajouter un nouvel étudiant</a>
 
         
     {% else %}

@@ -86,54 +86,13 @@ class __TwigTemplate_28c9f47211f562fc35b82486d889719743c0556e45e5d5117e9d86da93d
 
         // line 6
         echo "
-<section class=\"connexion\">
-    <h2>Accéder à la page de connexion :</h2>
-        <!-- zone de connexion -->
-    <!--  ON NE PEUT PAS POST ETC. ICI! Faut passer par le controller où tu mets handlerequest \$variable->handlerequest() 
-    ce genre de truc
-    <form action=\"verification.php\" method=\"POST\">              
-        <input type=\"submit\" id='submit' value='LOGIN' >
-        <?php
-        if(isset(\$_GET['erreur'])){
-            \$err = \$_GET['erreur'];
-            if(\$err==1 || \$err==2)
-                echo \"<p style='color:red'>Utilisateur ou mot de passe incorrect</p>\";
-        }
-        ?>
-    </form>
-    -->
-<!--
-    <div class=\"form-group has-success\">
-        <label class=\"form-control-label\" for=\"inputSuccess1\">ID de l'utilisateur :</label>
-        <input type=\"text\" value=\"correct value\" class=\"form-control is-valid\" id=\"inputValid\">
-        <div class=\"valid-feedback\">Success! You've done it.</div>
-    </div>
-
-    <div class=\"form-group has-danger\">
-        <label class=\"form-control-label\" for=\"inputDanger1\">Mot de passe :</label>
-        <input type=\"text\" value=\"wrong value\" class=\"form-control is-invalid\" id=\"inputInvalid\">
-        <div class=\"invalid-feedback\">Mot de passe et/ou id erronés.</div>
-    </div>
---> 
-
-<!-- PAS FAIRE CA FAUT UTILISER LES FORMULAIRES SYMFONY-->
-    <!--<div class=\"form-group\">
-        <label class=\"form-control-label\" for=\"inputLarge\">ID de l'utilisateur :</label>
-        <input id=\"user\" type=\"text\" class=\"form-control\" placeholder=\"Ecrire...\">
-    </div>
-    <div class=\"form-group\">
-        <label class=\"form-control-label\" for=\"exampleInputPassword1\">Mot de passe :</label>
-        <input id=\"mdp\" type=\"password\" class=\"form-control\" placeholder=\"Ecrire...\">
-    </div>
-
-    <div class=\"form-group\">
-        <label class=\"col-form-label col-form-label-lg\" for=\"inputLarge\">ID de l'utilisateur :</label>
-        <input class=\"form-control form-control-lg\" type=\"text\" placeholder=\".form-control-lg\" id=\"inputLarge\">
-    </div>-->
-    <a type=\"submit\" style=\"font-size:20px;height:50px;width:700px\" href=\"";
-        // line 51
+<br><h1 style=\"font-size:25px;\" >Bienvenue sur le site de l'ESIB. Connectez-vous pour accéder au site !</h1><br>
+<section align=\"center\" class=\"jumbotron\" >
+    <br><h2 style=\"font-size:35px;\" >Accéder à la page de connexion :</h2><br><br>
+    <a type=\"submit\" style=\"font-size:25px;height:50px;width:700px\" href=\"";
+        // line 10
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("login");
-        echo "\" class=\"btn btn-primary\">Se connecter</a>
+        echo "\" class=\"btn btn-primary\">Se connecter</a><br><br>
 </section>
 
 </form>
@@ -158,7 +117,7 @@ class __TwigTemplate_28c9f47211f562fc35b82486d889719743c0556e45e5d5117e9d86da93d
 
     public function getDebugInfo()
     {
-        return array (  135 => 51,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  94 => 10,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -169,51 +128,10 @@ class __TwigTemplate_28c9f47211f562fc35b82486d889719743c0556e45e5d5117e9d86da93d
 
 {% block body %}
 
-<section class=\"connexion\">
-    <h2>Accéder à la page de connexion :</h2>
-        <!-- zone de connexion -->
-    <!--  ON NE PEUT PAS POST ETC. ICI! Faut passer par le controller où tu mets handlerequest \$variable->handlerequest() 
-    ce genre de truc
-    <form action=\"verification.php\" method=\"POST\">              
-        <input type=\"submit\" id='submit' value='LOGIN' >
-        <?php
-        if(isset(\$_GET['erreur'])){
-            \$err = \$_GET['erreur'];
-            if(\$err==1 || \$err==2)
-                echo \"<p style='color:red'>Utilisateur ou mot de passe incorrect</p>\";
-        }
-        ?>
-    </form>
-    -->
-<!--
-    <div class=\"form-group has-success\">
-        <label class=\"form-control-label\" for=\"inputSuccess1\">ID de l'utilisateur :</label>
-        <input type=\"text\" value=\"correct value\" class=\"form-control is-valid\" id=\"inputValid\">
-        <div class=\"valid-feedback\">Success! You've done it.</div>
-    </div>
-
-    <div class=\"form-group has-danger\">
-        <label class=\"form-control-label\" for=\"inputDanger1\">Mot de passe :</label>
-        <input type=\"text\" value=\"wrong value\" class=\"form-control is-invalid\" id=\"inputInvalid\">
-        <div class=\"invalid-feedback\">Mot de passe et/ou id erronés.</div>
-    </div>
---> 
-
-<!-- PAS FAIRE CA FAUT UTILISER LES FORMULAIRES SYMFONY-->
-    <!--<div class=\"form-group\">
-        <label class=\"form-control-label\" for=\"inputLarge\">ID de l'utilisateur :</label>
-        <input id=\"user\" type=\"text\" class=\"form-control\" placeholder=\"Ecrire...\">
-    </div>
-    <div class=\"form-group\">
-        <label class=\"form-control-label\" for=\"exampleInputPassword1\">Mot de passe :</label>
-        <input id=\"mdp\" type=\"password\" class=\"form-control\" placeholder=\"Ecrire...\">
-    </div>
-
-    <div class=\"form-group\">
-        <label class=\"col-form-label col-form-label-lg\" for=\"inputLarge\">ID de l'utilisateur :</label>
-        <input class=\"form-control form-control-lg\" type=\"text\" placeholder=\".form-control-lg\" id=\"inputLarge\">
-    </div>-->
-    <a type=\"submit\" style=\"font-size:20px;height:50px;width:700px\" href=\"{{ path('login')}}\" class=\"btn btn-primary\">Se connecter</a>
+<br><h1 style=\"font-size:25px;\" >Bienvenue sur le site de l'ESIB. Connectez-vous pour accéder au site !</h1><br>
+<section align=\"center\" class=\"jumbotron\" >
+    <br><h2 style=\"font-size:35px;\" >Accéder à la page de connexion :</h2><br><br>
+    <a type=\"submit\" style=\"font-size:25px;height:50px;width:700px\" href=\"{{ path('login')}}\" class=\"btn btn-primary\">Se connecter</a><br><br>
 </section>
 
 </form>

@@ -1,10 +1,20 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Nouvelle Classe{% endblock %}
+{% block title %}
+    {% if editMode %}
+        Edit Classe
+    {% else %}
+        Nouvelle Classe
+    {% endif %}
+{% endblock %}
 
 {% block body %}
     {% if app.user %}
-        <h1>Ajouter une nouvelle classe à la liste :</h1>
+        {% if editMode %}
+            <h1>Modification de la classe sélectionnée :</h1>
+        {% else %}
+            <h1>Ajouter une nouvelle classe à la liste :</h1>
+        {% endif %}
         {{ form_start(formClasse)}}
             <label class="col-form-label col-form-label-lg" for="inputLarge">Nom complet du Professeur :</label>
             {{form_widget(formClasse.teacher)}}

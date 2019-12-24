@@ -87,7 +87,7 @@ class __TwigTemplate_183ab85e86f9cee40e17ef39bd86b7138f517715df56b6e2ec5c874911b
         // line 6
         echo "    ";
         if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 6, $this->source); })()), "user", [], "any", false, false, false, 6)) {
-            echo "   
+            echo " 
         <table class=\"table table-hover\">
             <thead>
                 <h1>Liste des classes :</h1>
@@ -117,9 +117,16 @@ class __TwigTemplate_183ab85e86f9cee40e17ef39bd86b7138f517715df56b6e2ec5c874911b
                                         <p class=\"card-title\"><a href=\"";
                     // line 18
                     echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("students", ["id" => twig_get_attribute($this->env, $this->source, $context["column"], "nameclass", [], "any", false, false, false, 18)]), "html", null, true);
-                    echo "\"style=\"color:white;\" class=\"btn btn-primary\">Voir la liste des élèves</a>&nbsp;<a href=\"";
-                    echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("deleteClass", ["id" => twig_get_attribute($this->env, $this->source, $context["column"], "nameclass", [], "any", false, false, false, 18)]), "html", null, true);
-                    echo "\" style=\"color:white;\" class=\"btn btn-danger\">Supprimer la classe</a></p>
+                    echo "\"style=\"color:white;\" class=\"btn btn-success\">Voir la liste des élèves</a>
+                                        &nbsp;<a href=\"";
+                    // line 19
+                    echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("deleteClass", ["id" => twig_get_attribute($this->env, $this->source, $context["column"], "nameclass", [], "any", false, false, false, 19)]), "html", null, true);
+                    echo "\" style=\"color:white;\" class=\"btn btn-primary\">Supprimer la classe</a>
+                                        &nbsp;<a href=\"";
+                    // line 20
+                    echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("editClass", ["id" => twig_get_attribute($this->env, $this->source, $context["column"], "id", [], "any", false, false, false, 20)]), "html", null, true);
+                    echo "\" style=\"color:white;\" class=\"btn btn-danger\">Modifier la classe</a>
+                                        </p>
                                     </div>
                             </td>
                         ";
@@ -127,28 +134,29 @@ class __TwigTemplate_183ab85e86f9cee40e17ef39bd86b7138f517715df56b6e2ec5c874911b
                 $_parent = $context['_parent'];
                 unset($context['_seq'], $context['_iterated'], $context['_key'], $context['column'], $context['_parent'], $context['loop']);
                 $context = array_intersect_key($context, $_parent) + $_parent;
-                // line 22
+                // line 25
                 echo "                    </tr>
                 ";
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['row'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 24
+            // line 27
             echo "            </tbody>
         </table>
         <a href=\"";
-            // line 26
+            // line 29
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("newClass");
             echo "\"style=\"color:white;\" class=\"btn btn-info btn-lg btn-block\">Ajouter une nouvelle classe</a>
     ";
         } else {
-            // line 28
-            echo "        <h2>Vous n'êtes pas connecté !</h2>
+            // line 31
+            echo "        <br>
+        <h2 style=\"font-size:25px;\">Vous n'êtes pas connecté !</h2>
 
     ";
         }
-        // line 31
+        // line 35
         echo "
 ";
         
@@ -171,7 +179,7 @@ class __TwigTemplate_183ab85e86f9cee40e17ef39bd86b7138f517715df56b6e2ec5c874911b
 
     public function getDebugInfo()
     {
-        return array (  152 => 31,  147 => 28,  142 => 26,  138 => 24,  131 => 22,  119 => 18,  112 => 16,  109 => 15,  105 => 14,  102 => 13,  98 => 12,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  160 => 35,  154 => 31,  149 => 29,  145 => 27,  138 => 25,  127 => 20,  123 => 19,  119 => 18,  112 => 16,  109 => 15,  105 => 14,  102 => 13,  98 => 12,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -181,7 +189,7 @@ class __TwigTemplate_183ab85e86f9cee40e17ef39bd86b7138f517715df56b6e2ec5c874911b
 {% block title %}Classes{% endblock %}
 
 {% block body %}
-    {% if app.user %}   
+    {% if app.user %} 
         <table class=\"table table-hover\">
             <thead>
                 <h1>Liste des classes :</h1>
@@ -193,7 +201,10 @@ class __TwigTemplate_183ab85e86f9cee40e17ef39bd86b7138f517715df56b6e2ec5c874911b
                             <td>
                                 <div class=\"card-header\"><strong>{{ column.nameclass }}</strong> : {{ column.teacher }}</div>
                                     <div class=\"card-body\">
-                                        <p class=\"card-title\"><a href=\"{{ path('students',{'id': column.nameclass }) }}\"style=\"color:white;\" class=\"btn btn-primary\">Voir la liste des élèves</a>&nbsp;<a href=\"{{ path('deleteClass',{'id': column.nameclass}) }}\" style=\"color:white;\" class=\"btn btn-danger\">Supprimer la classe</a></p>
+                                        <p class=\"card-title\"><a href=\"{{ path('students',{'id': column.nameclass }) }}\"style=\"color:white;\" class=\"btn btn-success\">Voir la liste des élèves</a>
+                                        &nbsp;<a href=\"{{ path('deleteClass',{'id': column.nameclass}) }}\" style=\"color:white;\" class=\"btn btn-primary\">Supprimer la classe</a>
+                                        &nbsp;<a href=\"{{ path('editClass',{'id': column.id}) }}\" style=\"color:white;\" class=\"btn btn-danger\">Modifier la classe</a>
+                                        </p>
                                     </div>
                             </td>
                         {% endfor %}
@@ -203,7 +214,8 @@ class __TwigTemplate_183ab85e86f9cee40e17ef39bd86b7138f517715df56b6e2ec5c874911b
         </table>
         <a href=\"{{path('newClass')}}\"style=\"color:white;\" class=\"btn btn-info btn-lg btn-block\">Ajouter une nouvelle classe</a>
     {% else %}
-        <h2>Vous n'êtes pas connecté !</h2>
+        <br>
+        <h2 style=\"font-size:25px;\">Vous n'êtes pas connecté !</h2>
 
     {% endif %}
 
