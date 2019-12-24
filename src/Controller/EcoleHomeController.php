@@ -98,11 +98,20 @@ class EcoleHomeController extends AbstractController
     *@Route("/home/editClass/{id}", name="editClass")
     */
     public function newClass(Classes $classe = null, 
-            Request $request, ObjectManager $manager)
+            Request $request, ObjectManager $manager, $id=null)
     {
+        if ($id)
+        {
+            $entityManager=$this->getDoctrine()->getManager();
+            $em=$entityManager->getRepository(Classes::class)->find($id);
+            $nameClass=$em->getNameClass();
+        }
+        
+        $routeEdit=true; 
         if(!$classe)
         {
             $classe = new Classes();
+            $routeEdit=false; 
         }
         $form = $this->createFormBuilder($classe)
                 ->add('teacher',TextType::class, [
@@ -118,11 +127,26 @@ class EcoleHomeController extends AbstractController
                 ->add('save', SubmitType::class,
                 ['label'=>'Enregistrer'])
                 ->getForm();
-        
-
+      
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid())
         {
+            $newForm = $form->getData();
+            $newNameOfClass=$newForm->getNameClass();
+
+            if($routeEdit==true)
+            {
+                $entityManager=$this->getDoctrine()->getManager();
+                $students=$entityManager->getRepository(Students::class)->findBy(['name_class' => $nameClass]);
+
+                foreach ($students as $student) {
+
+                    $student->setNameClass($newNameOfClass);
+
+                    $entityManager->persist($student);
+                    $entityManager->flush();
+                }
+            }
             $manager->persist($classe);
             $manager->flush();
             return $this->redirectToRoute('classes');

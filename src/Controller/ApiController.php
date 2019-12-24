@@ -56,11 +56,19 @@ class ApiController extends AbstractController
      * @Route("api/classes",name="add_api_classes", methods={"PUT", "OPTIONS"})
      * @Route("api/classes/{id}/edit", name="api_editClass", methods={"POST", "OPTIONS"})
      */
-    public function APIaddClass(Classes $class = null, Request $request)
+    public function APIaddClass(Classes $class = null, Request $request, $id=null)
     {
+        if ($id)
+        {
+            $entityManager=$this->getDoctrine()->getManager();
+            $em=$entityManager->getRepository(Classes::class)->find($id);
+            $nameClass=$em->getNameClass();
+        }
+        $routeEdit=true; 
         if(!$class)
         {
             $class = new Classes();
+            $routeEdit=false; 
         }
         $data = json_decode($request->getContent(),true);
         $form = $this->createForm(ClassesType::class, $class);
@@ -82,6 +90,20 @@ class ApiController extends AbstractController
             return $response;
             
         }
+        $newForm = $form->getData();
+        $newNameOfClass=$newForm->getNameClass();
+
+        if($routeEdit==true)
+        {
+            $entityManager=$this->getDoctrine()->getManager();
+            $students=$entityManager->getRepository(Students::class)->findBy(['name_class' => $nameClass]);
+            foreach ($students as $student) {
+                $student->setNameClass($newNameOfClass);
+                $entityManager->persist($student);
+                $entityManager->flush();
+            }
+        }
+
         $doctrine=$this->getDoctrine()->getManager();
         $doctrine->persist($class);
         $doctrine->flush();

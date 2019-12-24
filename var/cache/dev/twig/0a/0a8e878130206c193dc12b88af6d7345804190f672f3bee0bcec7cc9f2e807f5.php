@@ -163,10 +163,11 @@ class __TwigTemplate_3182942f5abe5132f0a2c64d5e552e6d0967042cd4dac9f16d4c3ac814a
     ";
         } else {
             // line 38
-            echo "        <h2>Vous n'êtes pas connecté !</h2>
+            echo "        <br>
+        <h2 style=\"font-size:25px;\">Vous n'êtes pas connecté !</h2>
     ";
         }
-        // line 40
+        // line 41
         echo "
 ";
         
@@ -189,7 +190,7 @@ class __TwigTemplate_3182942f5abe5132f0a2c64d5e552e6d0967042cd4dac9f16d4c3ac814a
 
     public function getDebugInfo()
     {
-        return array (  170 => 40,  166 => 38,  159 => 34,  156 => 33,  154 => 32,  149 => 31,  139 => 27,  135 => 26,  130 => 24,  126 => 23,  122 => 22,  119 => 21,  116 => 20,  111 => 19,  108 => 18,  106 => 17,  94 => 8,  91 => 7,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  171 => 41,  166 => 38,  159 => 34,  156 => 33,  154 => 32,  149 => 31,  139 => 27,  135 => 26,  130 => 24,  126 => 23,  122 => 22,  119 => 21,  116 => 20,  111 => 19,  108 => 18,  106 => 17,  94 => 8,  91 => 7,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -231,7 +232,8 @@ class __TwigTemplate_3182942f5abe5132f0a2c64d5e552e6d0967042cd4dac9f16d4c3ac814a
 
         
     {% else %}
-        <h2>Vous n'êtes pas connecté !</h2>
+        <br>
+        <h2 style=\"font-size:25px;\">Vous n'êtes pas connecté !</h2>
     {% endif %}
 
 {% endblock %}", "ecole_home/students.html.twig", "C:\\wamp64\\www\\ecole\\templates\\ecole_home\\students.html.twig");

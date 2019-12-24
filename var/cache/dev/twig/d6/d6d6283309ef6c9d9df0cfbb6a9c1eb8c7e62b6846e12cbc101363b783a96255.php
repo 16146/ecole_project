@@ -86,7 +86,7 @@ class __TwigTemplate_28c9f47211f562fc35b82486d889719743c0556e45e5d5117e9d86da93d
 
         // line 6
         echo "
-<br><h1 style=\"font-size:25px;\" >Bienvenue sur le site de l'ESIB. Connectez-vous pour accéder au site !</h1><br>
+<br><h1 style=\"font-size:25px;\" >Bienvenue sur le site de l'ESIB. Connectez-vous pour accéder aux données !</h1><br>
 <section align=\"center\" class=\"jumbotron\" >
     <br><h2 style=\"font-size:35px;\" >Accéder à la page de connexion :</h2><br><br>
     <a type=\"submit\" style=\"font-size:25px;height:50px;width:700px\" href=\"";
@@ -128,7 +128,7 @@ class __TwigTemplate_28c9f47211f562fc35b82486d889719743c0556e45e5d5117e9d86da93d
 
 {% block body %}
 
-<br><h1 style=\"font-size:25px;\" >Bienvenue sur le site de l'ESIB. Connectez-vous pour accéder au site !</h1><br>
+<br><h1 style=\"font-size:25px;\" >Bienvenue sur le site de l'ESIB. Connectez-vous pour accéder aux données !</h1><br>
 <section align=\"center\" class=\"jumbotron\" >
     <br><h2 style=\"font-size:35px;\" >Accéder à la page de connexion :</h2><br><br>
     <a type=\"submit\" style=\"font-size:25px;height:50px;width:700px\" href=\"{{ path('login')}}\" class=\"btn btn-primary\">Se connecter</a><br><br>
