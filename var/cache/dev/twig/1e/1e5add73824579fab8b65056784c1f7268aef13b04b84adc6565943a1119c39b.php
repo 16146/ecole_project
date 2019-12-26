@@ -54,7 +54,7 @@ class __TwigTemplate_4aa85d5331caad2f45302698870ddba7dcd508d4fde6fffa3579fd30dbc
 
     }
 
-    // line 2
+    // line 3
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -64,26 +64,30 @@ class __TwigTemplate_4aa85d5331caad2f45302698870ddba7dcd508d4fde6fffa3579fd30dbc
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 3
-        echo "
+        // line 4
+        echo "    <!-- Vue du login -->
     <h1>Entrez vos identifiants :</h1>
     ";
-        // line 5
-        if ((isset($context["error"]) || array_key_exists("error", $context) ? $context["error"] : (function () { throw new RuntimeError('Variable "error" does not exist.', 5, $this->source); })())) {
-            // line 6
-            echo "        <div>";
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans(twig_get_attribute($this->env, $this->source, (isset($context["error"]) || array_key_exists("error", $context) ? $context["error"] : (function () { throw new RuntimeError('Variable "error" does not exist.', 6, $this->source); })()), "messageKey", [], "any", false, false, false, 6), twig_get_attribute($this->env, $this->source, (isset($context["error"]) || array_key_exists("error", $context) ? $context["error"] : (function () { throw new RuntimeError('Variable "error" does not exist.', 6, $this->source); })()), "messageData", [], "any", false, false, false, 6), "security"), "html", null, true);
+        // line 6
+        if ((isset($context["error"]) || array_key_exists("error", $context) ? $context["error"] : (function () { throw new RuntimeError('Variable "error" does not exist.', 6, $this->source); })())) {
+            // line 7
+            echo "        <!-- Exemple d'erreur : Invalid Credentials -->
+        <div>";
+            // line 8
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans(twig_get_attribute($this->env, $this->source, (isset($context["error"]) || array_key_exists("error", $context) ? $context["error"] : (function () { throw new RuntimeError('Variable "error" does not exist.', 8, $this->source); })()), "messageKey", [], "any", false, false, false, 8), twig_get_attribute($this->env, $this->source, (isset($context["error"]) || array_key_exists("error", $context) ? $context["error"] : (function () { throw new RuntimeError('Variable "error" does not exist.', 8, $this->source); })()), "messageData", [], "any", false, false, false, 8), "security"), "html", null, true);
             echo "</div>
     ";
         }
-        // line 8
-        echo "    <form action=\"";
+        // line 10
+        echo "    <!-- Form qui renvoie vers le controller SecurityController.php -->
+    <form action=\"";
+        // line 11
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("login");
         echo "\" method=\"post\">
         <div class=\"form-group\">
             <label style=\"font-size:28px;height:50px;width:100%\">Identifiant : </label><input style=\"font-size:28px;height:50px;width:100%\" value=\"";
-        // line 10
-        echo twig_escape_filter($this->env, (isset($context["last_username"]) || array_key_exists("last_username", $context) ? $context["last_username"] : (function () { throw new RuntimeError('Variable "last_username" does not exist.', 10, $this->source); })()), "html", null, true);
+        // line 13
+        echo twig_escape_filter($this->env, (isset($context["last_username"]) || array_key_exists("last_username", $context) ? $context["last_username"] : (function () { throw new RuntimeError('Variable "last_username" does not exist.', 13, $this->source); })()), "html", null, true);
         echo "\" placeholder=\"Entrez un ID d'utilisateur (= admin)...\" required id=\"_username\" name=\"_username\"
             type=\"text\" class=\"form-control\">
         </div>
@@ -118,18 +122,21 @@ class __TwigTemplate_4aa85d5331caad2f45302698870ddba7dcd508d4fde6fffa3579fd30dbc
 
     public function getDebugInfo()
     {
-        return array (  86 => 10,  80 => 8,  74 => 6,  72 => 5,  68 => 3,  58 => 2,  35 => 1,);
+        return array (  90 => 13,  85 => 11,  82 => 10,  77 => 8,  74 => 7,  72 => 6,  68 => 4,  58 => 3,  35 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("{% extends 'base.html.twig' %}
-{% block body %}
 
+{% block body %}
+    <!-- Vue du login -->
     <h1>Entrez vos identifiants :</h1>
     {% if error %}
+        <!-- Exemple d'erreur : Invalid Credentials -->
         <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
+    <!-- Form qui renvoie vers le controller SecurityController.php -->
     <form action=\"{{ path('login') }}\" method=\"post\">
         <div class=\"form-group\">
             <label style=\"font-size:28px;height:50px;width:100%\">Identifiant : </label><input style=\"font-size:28px;height:50px;width:100%\" value=\"{{ last_username }}\" placeholder=\"Entrez un ID d'utilisateur (= admin)...\" required id=\"_username\" name=\"_username\"

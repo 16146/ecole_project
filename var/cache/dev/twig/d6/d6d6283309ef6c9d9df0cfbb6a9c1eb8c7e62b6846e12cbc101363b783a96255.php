@@ -85,17 +85,14 @@ class __TwigTemplate_28c9f47211f562fc35b82486d889719743c0556e45e5d5117e9d86da93d
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        echo "
-<br><h1 style=\"font-size:25px;\" >Bienvenue sur le site de l'ESIB. Connectez-vous pour accéder aux données !</h1><br>
-<section align=\"center\" class=\"jumbotron\" >
-    <br><h2 style=\"font-size:35px;\" >Accéder à la page de connexion :</h2><br><br>
-    <a type=\"submit\" style=\"font-size:25px;height:50px;width:700px\" href=\"";
-        // line 10
+        echo "    <br><h1 style=\"font-size:25px;\" >Bienvenue sur le site de l'ESIB. Connectez-vous pour accéder aux données !</h1><br>
+    <section align=\"center\" class=\"jumbotron\" >
+        <br><h2 style=\"font-size:35px;\" >Accéder à la page de connexion :</h2><br><br>
+        <a type=\"submit\" style=\"font-size:25px;height:50px;width:700px\" href=\"";
+        // line 9
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("login");
         echo "\" class=\"btn btn-primary\">Se connecter</a><br><br>
-</section>
-
-</form>
+    </section>
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -117,7 +114,7 @@ class __TwigTemplate_28c9f47211f562fc35b82486d889719743c0556e45e5d5117e9d86da93d
 
     public function getDebugInfo()
     {
-        return array (  94 => 10,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  93 => 9,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -127,14 +124,11 @@ class __TwigTemplate_28c9f47211f562fc35b82486d889719743c0556e45e5d5117e9d86da93d
 {% block title %}Accueil{% endblock %}
 
 {% block body %}
-
-<br><h1 style=\"font-size:25px;\" >Bienvenue sur le site de l'ESIB. Connectez-vous pour accéder aux données !</h1><br>
-<section align=\"center\" class=\"jumbotron\" >
-    <br><h2 style=\"font-size:35px;\" >Accéder à la page de connexion :</h2><br><br>
-    <a type=\"submit\" style=\"font-size:25px;height:50px;width:700px\" href=\"{{ path('login')}}\" class=\"btn btn-primary\">Se connecter</a><br><br>
-</section>
-
-</form>
+    <br><h1 style=\"font-size:25px;\" >Bienvenue sur le site de l'ESIB. Connectez-vous pour accéder aux données !</h1><br>
+    <section align=\"center\" class=\"jumbotron\" >
+        <br><h2 style=\"font-size:35px;\" >Accéder à la page de connexion :</h2><br><br>
+        <a type=\"submit\" style=\"font-size:25px;height:50px;width:700px\" href=\"{{ path('login')}}\" class=\"btn btn-primary\">Se connecter</a><br><br>
+    </section>
 {% endblock %}
 ", "ecole_home/home.html.twig", "C:\\wamp64\\www\\ecole\\templates\\ecole_home\\home.html.twig");
     }

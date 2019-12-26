@@ -9,23 +9,23 @@
 {% endblock %}
 
 {% block body %}
+    <!-- Vue ajout/modification d'un étudiant -->
     {% if app.user %}
+        <!-- La variable editMode est renvoyé  depuis la fonction du controller.
+             Cette variable existe si le mode edition est activé -->
         {% if editMode %}
             <h1>Modifier l'étudiant sélectionné de la {{name_of_class}} :</h1>
         {% else %}
             <h1>Ajouter un nouvel étudiant à la classe {{name_of_class}} :</h1>
         {% endif %}
-        {{ form_start(formStudent)}}
-            <label class="col-form-label col-form-label-lg" for="inputLarge">Nom de l'étudiant :</label>
-            {{form_widget(formStudent.student_name)}}
-            <label class="col-form-label col-form-label-lg" for="inputLarge">Prénom de l'étudiant :</label>
-            {{form_widget(formStudent.student_firstname)}}
-            <br>
-        {{ form_end(formStudent)}}
-
+            {{ form_start(formStudent)}}
+                <label class="col-form-label col-form-label-lg" for="inputLarge">Nom de l'étudiant :</label>
+                {{form_widget(formStudent.student_name)}}
+                <label class="col-form-label col-form-label-lg" for="inputLarge">Prénom de l'étudiant :</label>
+                {{form_widget(formStudent.student_firstname)}}
+                <br>
+            {{ form_end(formStudent)}}
     {% else %}
         <h2>Vous n'êtes pas connecté !</h2>
-
     {% endif %}
-
 {% endblock %}

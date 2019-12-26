@@ -3,40 +3,39 @@
 {% block title %}Elèves{% endblock %}
 
 {% block body %}
+    <!-- Vue de la liste des élèves, ne s'affiche complètement que si l'user est connecté -->
     {% if app.user %}
         <table class="table table-hover">
-        <h1>{{name_class}}</h1>
-        <thead>
-            <tr>
-                <th scope="col">Numéro</th>
-                <th scope="col">Nom</th>
-                <th scope="col">Prénom</th>
-            </tr>
-        </thead> 
-        <tbody>
-            {% set i=0 %}
-            {% if liste_students is not empty %}
-                {% for student in liste_students %}
-                    {% set i=i+1 %}
-                    <tr>
-                        <th scope="row">{{ i }}</th>
-                        <td>{{ student.studentname }}</td>
-                        <td>{{ student.studentfirstname }}</td>
-                        <td>                        
-                        <a href="{{ path('editStudent',{'id': student.id}) }}"style="color:white;" class="btn btn-danger">Editer</a>
-                        <a href="{{ path('deleteStudent',{'id1': student.id, 'id2': student.nameclass}) }}"style="color:white;" class="btn btn-primary">Supprimer</a>
-                        </td>
-                    </tr>
-                {% endfor %}
-            {% endif %} 
-            {% set i=0 %}
+            <h1>{{name_class}}</h1>
+            <thead>
+                <tr>
+                    <th scope="col">Numéro</th>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Prénom</th>
+                </tr>
+            </thead> 
+            <tbody>
+                {% set i=0 %} <!-- Variable d'index, s'incrémente chaque boucle -->
+                {% if liste_students is not empty %}
+                    {% for student in liste_students %}
+                        {% set i=i+1 %}
+                        <tr>
+                            <th scope="row">{{ i }}</th>
+                            <td>{{ student.studentname }}</td>
+                            <td>{{ student.studentfirstname }}</td>
+                            <td>                        
+                            <a href="{{ path('editStudent',{'id': student.id}) }}"style="color:white;" class="btn btn-danger">Editer</a>
+                            <a href="{{ path('deleteStudent',{'id': student.id, 'name_class': student.nameclass}) }}"style="color:white;" class="btn btn-primary">Supprimer</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                {% endif %} 
+                {% set i=0 %}
+            </tbody>
         </table>
-        <a href="{{path('newStudent', {'id1': name_class })}}"style="color:white;" class="btn btn-info btn-lg btn-block">Ajouter un nouvel étudiant</a>
-
-        
+        <a href="{{path('newStudent', {'nameClass': name_class })}}"style="color:white;" class="btn btn-info btn-lg btn-block">Ajouter un nouvel étudiant</a>
+    
     {% else %}
-        <br>
-        <h2 style="font-size:25px;">Vous n'êtes pas connecté !</h2>
+        <br><h2 style="font-size:25px;">Vous n'êtes pas connecté !</h2>
     {% endif %}
-
 {% endblock %}

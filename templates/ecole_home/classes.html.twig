@@ -3,20 +3,23 @@
 {% block title %}Classes{% endblock %}
 
 {% block body %}
+    <!-- Vue sur la liste des classes qui ne s'affiche que si l'utilisateur est connecté -->
     {% if app.user %} 
         <table class="table table-hover">
             <thead>
                 <h1>Liste des classes :</h1>
             </thead> 
             <tbody>
+                <!-- batch(2) permet de remplir au fur et à mesure un tableau de 2 colonnes.
+                     La liste des classes est reçue depuis le controlleur -->
                 {% for row in liste_classes|batch(2) %}
                     <tr>
                         {% for column in row %}
                             <td>
                                 <div class="card-header"><strong>{{ column.nameclass }}</strong> : {{ column.teacher }}</div>
                                     <div class="card-body">
-                                        <p class="card-title"><a href="{{ path('students',{'id': column.nameclass }) }}"style="color:white;" class="btn btn-success">Voir la liste des élèves</a>
-                                        &nbsp;<a href="{{ path('deleteClass',{'id': column.nameclass}) }}" style="color:white;" class="btn btn-primary">Supprimer la classe</a>
+                                        <p class="card-title"><a href="{{ path('students',{'name_class': column.nameclass }) }}"style="color:white;" class="btn btn-success">Voir la liste des élèves</a>
+                                        &nbsp;<a href="{{ path('deleteClass',{'name_class': column.nameclass}) }}" style="color:white;" class="btn btn-primary">Supprimer la classe</a>
                                         &nbsp;<a href="{{ path('editClass',{'id': column.id}) }}" style="color:white;" class="btn btn-danger">Modifier la classe</a>
                                         </p>
                                     </div>
@@ -28,9 +31,6 @@
         </table>
         <a href="{{path('newClass')}}"style="color:white;" class="btn btn-info btn-lg btn-block">Ajouter une nouvelle classe</a>
     {% else %}
-        <br>
-        <h2 style="font-size:25px;">Vous n'êtes pas connecté !</h2>
-
+        <br><h2 style="font-size:25px;">Vous n'êtes pas connecté !</h2>
     {% endif %}
-
 {% endblock %}

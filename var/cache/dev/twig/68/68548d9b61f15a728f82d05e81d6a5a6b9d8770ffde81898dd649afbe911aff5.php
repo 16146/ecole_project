@@ -95,49 +95,49 @@ class __TwigTemplate_f451e752faaa567e69791343e110cddaf809571c7c22ae78f8cccc505e0
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 12
-        echo "    ";
-        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 12, $this->source); })()), "user", [], "any", false, false, false, 12)) {
-            // line 13
-            echo "        ";
-            if ((isset($context["editMode"]) || array_key_exists("editMode", $context) ? $context["editMode"] : (function () { throw new RuntimeError('Variable "editMode" does not exist.', 13, $this->source); })())) {
-                // line 14
+        echo "    <!-- Vue d'ajout/modification d'une classe -->
+    ";
+        // line 13
+        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 13, $this->source); })()), "user", [], "any", false, false, false, 13)) {
+            // line 14
+            echo "        <!-- La variable editMode est renvoyé  depuis la fonction du controller.
+             Cette variable existe si le mode edition est activé -->    
+        ";
+            // line 16
+            if ((isset($context["editMode"]) || array_key_exists("editMode", $context) ? $context["editMode"] : (function () { throw new RuntimeError('Variable "editMode" does not exist.', 16, $this->source); })())) {
+                // line 17
                 echo "            <h1>Modification de la classe sélectionnée :</h1>
         ";
             } else {
-                // line 16
+                // line 19
                 echo "            <h1>Ajouter une nouvelle classe à la liste :</h1>
         ";
             }
-            // line 18
-            echo "        ";
-            echo             $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["formClasse"]) || array_key_exists("formClasse", $context) ? $context["formClasse"] : (function () { throw new RuntimeError('Variable "formClasse" does not exist.', 18, $this->source); })()), 'form_start');
+            // line 21
+            echo "            ";
+            echo             $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["formClasse"]) || array_key_exists("formClasse", $context) ? $context["formClasse"] : (function () { throw new RuntimeError('Variable "formClasse" does not exist.', 21, $this->source); })()), 'form_start');
             echo "
-            <label class=\"col-form-label col-form-label-lg\" for=\"inputLarge\">Nom complet du Professeur :</label>
+                <label class=\"col-form-label col-form-label-lg\" for=\"inputLarge\">Nom complet du Professeur :</label>
+                ";
+            // line 23
+            echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["formClasse"]) || array_key_exists("formClasse", $context) ? $context["formClasse"] : (function () { throw new RuntimeError('Variable "formClasse" does not exist.', 23, $this->source); })()), "teacher", [], "any", false, false, false, 23), 'widget');
+            echo "
+                <label class=\"col-form-label col-form-label-lg\" for=\"inputLarge\">Nom de la classe :</label>
+                ";
+            // line 25
+            echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["formClasse"]) || array_key_exists("formClasse", $context) ? $context["formClasse"] : (function () { throw new RuntimeError('Variable "formClasse" does not exist.', 25, $this->source); })()), "name_class", [], "any", false, false, false, 25), 'widget');
+            echo "
+                <br>
             ";
-            // line 20
-            echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["formClasse"]) || array_key_exists("formClasse", $context) ? $context["formClasse"] : (function () { throw new RuntimeError('Variable "formClasse" does not exist.', 20, $this->source); })()), "teacher", [], "any", false, false, false, 20), 'widget');
+            // line 27
+            echo             $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["formClasse"]) || array_key_exists("formClasse", $context) ? $context["formClasse"] : (function () { throw new RuntimeError('Variable "formClasse" does not exist.', 27, $this->source); })()), 'form_end');
             echo "
-            <label class=\"col-form-label col-form-label-lg\" for=\"inputLarge\">Nom de la classe :</label>
-            ";
-            // line 22
-            echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["formClasse"]) || array_key_exists("formClasse", $context) ? $context["formClasse"] : (function () { throw new RuntimeError('Variable "formClasse" does not exist.', 22, $this->source); })()), "name_class", [], "any", false, false, false, 22), 'widget');
-            echo "
-            <br>
-        ";
-            // line 24
-            echo             $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["formClasse"]) || array_key_exists("formClasse", $context) ? $context["formClasse"] : (function () { throw new RuntimeError('Variable "formClasse" does not exist.', 24, $this->source); })()), 'form_end');
-            echo "
-
     ";
         } else {
-            // line 27
+            // line 29
             echo "        <h2>Vous n'êtes pas connecté !</h2>
-
     ";
         }
-        // line 30
-        echo "
-";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -158,7 +158,7 @@ class __TwigTemplate_f451e752faaa567e69791343e110cddaf809571c7c22ae78f8cccc505e0
 
     public function getDebugInfo()
     {
-        return array (  139 => 30,  134 => 27,  128 => 24,  123 => 22,  118 => 20,  112 => 18,  108 => 16,  104 => 14,  101 => 13,  98 => 12,  88 => 11,  76 => 7,  72 => 5,  69 => 4,  59 => 3,  36 => 1,);
+        return array (  138 => 29,  133 => 27,  128 => 25,  123 => 23,  117 => 21,  113 => 19,  109 => 17,  107 => 16,  103 => 14,  101 => 13,  98 => 12,  88 => 11,  76 => 7,  72 => 5,  69 => 4,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -174,25 +174,25 @@ class __TwigTemplate_f451e752faaa567e69791343e110cddaf809571c7c22ae78f8cccc505e0
 {% endblock %}
 
 {% block body %}
+    <!-- Vue d'ajout/modification d'une classe -->
     {% if app.user %}
+        <!-- La variable editMode est renvoyé  depuis la fonction du controller.
+             Cette variable existe si le mode edition est activé -->    
         {% if editMode %}
             <h1>Modification de la classe sélectionnée :</h1>
         {% else %}
             <h1>Ajouter une nouvelle classe à la liste :</h1>
         {% endif %}
-        {{ form_start(formClasse)}}
-            <label class=\"col-form-label col-form-label-lg\" for=\"inputLarge\">Nom complet du Professeur :</label>
-            {{form_widget(formClasse.teacher)}}
-            <label class=\"col-form-label col-form-label-lg\" for=\"inputLarge\">Nom de la classe :</label>
-            {{form_widget(formClasse.name_class)}}
-            <br>
-        {{ form_end(formClasse)}}
-
+            {{ form_start(formClasse)}}
+                <label class=\"col-form-label col-form-label-lg\" for=\"inputLarge\">Nom complet du Professeur :</label>
+                {{form_widget(formClasse.teacher)}}
+                <label class=\"col-form-label col-form-label-lg\" for=\"inputLarge\">Nom de la classe :</label>
+                {{form_widget(formClasse.name_class)}}
+                <br>
+            {{ form_end(formClasse)}}
     {% else %}
         <h2>Vous n'êtes pas connecté !</h2>
-
     {% endif %}
-
 {% endblock %}", "ecole_home/newClass.html.twig", "C:\\wamp64\\www\\ecole\\templates\\ecole_home\\newClass.html.twig");
     }
 }

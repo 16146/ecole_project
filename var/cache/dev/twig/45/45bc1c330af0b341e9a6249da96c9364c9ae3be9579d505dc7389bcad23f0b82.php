@@ -46,23 +46,24 @@ class __TwigTemplate_885b8b53cfe7ce2b3fb4c00251e958137ad0413c1b6e6262908ef64c916
         // line 1
         echo "<!DOCTYPE html>
 <html>
+    <!-- Barre de navigation avec le thème bootswatch -->
     <head>
         <meta charset=\"UTF-8\">
         <title>";
-        // line 5
+        // line 6
         $this->displayBlock('title', $context, $blocks);
         echo "</title>
         <link rel=\"stylesheet\"
         href=\"https://bootswatch.com/4/journal/bootstrap.min.css\">
         ";
-        // line 8
-        $this->displayBlock('stylesheets', $context, $blocks);
         // line 9
+        $this->displayBlock('stylesheets', $context, $blocks);
+        // line 10
         echo "    </head>
     <body>
         <nav class=\"navbar navbar-expand-lg navbar-dark bg-primary\">
             <a class=\"navbar-brand\" href=\"";
-        // line 12
+        // line 13
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("home");
         echo "\">Ecole des Sciences Intergalactiques de Bruxelles</a>
             <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarColor01\" aria-controls=\"navbarColor01\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
@@ -73,43 +74,43 @@ class __TwigTemplate_885b8b53cfe7ce2b3fb4c00251e958137ad0413c1b6e6262908ef64c916
                 <ul class=\"navbar-nav mr-auto\">
                     <li class=\"nav-item\">
                         <a class=\"nav-link\" href=\"";
-        // line 20
+        // line 21
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("home");
         echo "\">Accueil<span class=\"sr-only\">(current)</span></a>
                     </li>
                     <li class=\"nav-item\">
                         <a class=\"nav-link\" href=\"";
-        // line 23
+        // line 24
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("classes");
         echo "\">Classes</a>
                     </li>
                     ";
-        // line 25
-        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 25, $this->source); })()), "user", [], "any", false, false, false, 25)) {
-            // line 26
+        // line 26
+        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 26, $this->source); })()), "user", [], "any", false, false, false, 26)) {
+            // line 27
             echo "                    <li class=\"nav-item\">
                         <a class=\"nav-link\" href=\"";
-            // line 27
+            // line 28
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("logout");
             echo "\">Déconnexion</a>
                     </li>
-                </ul>
-                ";
+                    ";
         }
         // line 31
-        echo "            </div>
+        echo "                </ul>
+            </div>
             
         </nav>
         <div class=\"container\">        
             ";
-        // line 35
-        $this->displayBlock('body', $context, $blocks);
         // line 36
+        $this->displayBlock('body', $context, $blocks);
+        // line 37
         echo "        </div>
         ";
-        // line 37
-        $this->displayBlock('javascripts', $context, $blocks);
         // line 38
+        $this->displayBlock('javascripts', $context, $blocks);
+        // line 39
         echo "    </body>
 </html>
 ";
@@ -121,7 +122,7 @@ class __TwigTemplate_885b8b53cfe7ce2b3fb4c00251e958137ad0413c1b6e6262908ef64c916
 
     }
 
-    // line 5
+    // line 6
     public function block_title($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -140,7 +141,7 @@ class __TwigTemplate_885b8b53cfe7ce2b3fb4c00251e958137ad0413c1b6e6262908ef64c916
 
     }
 
-    // line 8
+    // line 9
     public function block_stylesheets($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -158,7 +159,7 @@ class __TwigTemplate_885b8b53cfe7ce2b3fb4c00251e958137ad0413c1b6e6262908ef64c916
 
     }
 
-    // line 35
+    // line 36
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -176,7 +177,7 @@ class __TwigTemplate_885b8b53cfe7ce2b3fb4c00251e958137ad0413c1b6e6262908ef64c916
 
     }
 
-    // line 37
+    // line 38
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -206,13 +207,14 @@ class __TwigTemplate_885b8b53cfe7ce2b3fb4c00251e958137ad0413c1b6e6262908ef64c916
 
     public function getDebugInfo()
     {
-        return array (  180 => 37,  162 => 35,  144 => 8,  125 => 5,  113 => 38,  111 => 37,  108 => 36,  106 => 35,  100 => 31,  93 => 27,  90 => 26,  88 => 25,  83 => 23,  77 => 20,  66 => 12,  61 => 9,  59 => 8,  53 => 5,  47 => 1,);
+        return array (  181 => 38,  163 => 36,  145 => 9,  126 => 6,  114 => 39,  112 => 38,  109 => 37,  107 => 36,  100 => 31,  94 => 28,  91 => 27,  89 => 26,  84 => 24,  78 => 21,  67 => 13,  62 => 10,  60 => 9,  54 => 6,  47 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("<!DOCTYPE html>
 <html>
+    <!-- Barre de navigation avec le thème bootswatch -->
     <head>
         <meta charset=\"UTF-8\">
         <title>{% block title %}ESIB{% endblock %}</title>
@@ -239,8 +241,8 @@ class __TwigTemplate_885b8b53cfe7ce2b3fb4c00251e958137ad0413c1b6e6262908ef64c916
                     <li class=\"nav-item\">
                         <a class=\"nav-link\" href=\"{{path('logout')}}\">Déconnexion</a>
                     </li>
+                    {% endif %}
                 </ul>
-                {% endif %}
             </div>
             
         </nav>

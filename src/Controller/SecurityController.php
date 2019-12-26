@@ -11,6 +11,8 @@ use Symfony\Component\HttpFoundation\Response;
 use App\Entity\User;
 use App\Form\RegistrationType;
 
+//Controlleur qui gère la connexion
+
 class SecurityController extends AbstractController
 {
     /**
@@ -26,6 +28,7 @@ class SecurityController extends AbstractController
         ]
     );
     }
+    
     /**
      * @Route("/logout", name="logout")
      */

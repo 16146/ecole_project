@@ -15,8 +15,8 @@ return $getExpiry ? PHP_INT_MAX : Hydrator::hydrate(
                 'api/classes/{id}/edit',
             ],
             'name' => [
-                'add_api_classes',
-                'api_editClass',
+                'api_add_classes',
+                'api_edit_class',
             ],
             'methods' => [
                 [

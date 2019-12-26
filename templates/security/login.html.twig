@@ -1,10 +1,13 @@
 {% extends 'base.html.twig' %}
-{% block body %}
 
+{% block body %}
+    <!-- Vue du login -->
     <h1>Entrez vos identifiants :</h1>
     {% if error %}
+        <!-- Exemple d'erreur : Invalid Credentials -->
         <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
+    <!-- Form qui renvoie vers le controller SecurityController.php -->
     <form action="{{ path('login') }}" method="post">
         <div class="form-group">
             <label style="font-size:28px;height:50px;width:100%">Identifiant : </label><input style="font-size:28px;height:50px;width:100%" value="{{ last_username }}" placeholder="Entrez un ID d'utilisateur (= admin)..." required id="_username" name="_username"

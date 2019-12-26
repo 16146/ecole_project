@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+    <!-- Barre de navigation avec le thème bootswatch -->
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}ESIB{% endblock %}</title>
@@ -26,8 +27,8 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{path('logout')}}">Déconnexion</a>
                     </li>
+                    {% endif %}
                 </ul>
-                {% endif %}
             </div>
             
         </nav>
