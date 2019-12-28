@@ -5606,3 +5606,5 @@ a78646,::1,GET,http://localhost/ecole/public/index.php/api/students/131,15773675
 f3177b,::1,GET,http://localhost/ecole/public/index.php/api/students/131,1577367860,,200
 0f35bd,::1,GET,http://localhost/ecole/public/index.php/api/students/131,1577367934,,200
 3d91ce,::1,GET,http://localhost/ecole/public/index.php/api/students/131,1577367941,,200
+c9dd66,::1,PUT,http://localhost/ecole/public/index.php/api/classes,1577384602,,200
+594a8a,::1,GET,http://localhost/ecole/public/index.php/home,1577398264,,200
